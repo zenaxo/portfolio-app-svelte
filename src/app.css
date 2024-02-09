@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    --primary: rgb(255, 255, 255);
+    --secondary: rgb(18, 18, 18);
+    --hover: rgb(235, 235, 235);
+    --accent-alt: rgb(144, 144, 144);
+    background-color: var(--primary);
+    --accent: rgb(0, 115, 207);
+    --accent-hover: rgb(1, 102, 184);
+    overflow-x: hidden;
+}
+html {
+    overflow-x: hidden;
+}
+body.dark {
+    --primary: rgb(18, 18, 18);
+    --secondary: rgb(255, 255, 255);
+    --hover: rgb(54, 54, 54);
+    --accent-alt: rgb(54, 54, 54);
+}
+
+* {
+    transition: background 0.15s ease;
+}
