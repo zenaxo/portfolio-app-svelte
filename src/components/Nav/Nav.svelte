@@ -42,9 +42,9 @@
 			<!--Logo-->
 			<a href="/">
 				{#if isDarkModeToggled}
-					<img alt="logo of website" src={darkLogo} class="w-[35px]" />
+					<img alt="logo of website" src={darkLogo} class="w-[35px]" width="35" />
 				{:else}
-					<img alt="logo of website" src={lightLogo} class="w-[35px]" />
+					<img alt="logo of website" src={lightLogo} class="w-[35px]" width="35" />
 				{/if}
 			</a>
 		</div>

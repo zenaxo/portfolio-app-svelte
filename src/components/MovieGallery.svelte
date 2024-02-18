@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
-	import { onMount } from 'svelte';
+	import start from '$lib/images/mgstart.png';
+	import details from '$lib/images/mgdetailsone.png';
+	import login from '$lib/images/mglogin.png';
+	import edit from '$lib/images/mgedit.png';
 
 	let currentImgIndex = 0;
 
@@ -8,29 +11,11 @@
 	let touchEndX = 0;
 
 	const images = [
-		{ src: 'src/lib/images/mgstart.png', alt: 'Movie Gallery index view' },
-		{ src: 'src/lib/images/mgdetailsone.png', alt: 'Movie Gallery detail view' },
-		{ src: 'src/lib/images/mglogin.png', alt: 'Movie Gallery log in view' },
-		{ src: 'src/lib/images/mgedit.png', alt: 'Movie gallery edit movie view' }
+		{ src: start, alt: 'Movie Gallery index view' },
+		{ src: details, alt: 'Movie Gallery detail view' },
+		{ src: login, alt: 'Movie Gallery log in view' },
+		{ src: edit, alt: 'Movie gallery edit movie view' }
 	];
-
-	const isClose = () => {
-		const element = document.getElementById('movieGalleryPosCheck') as HTMLElement;
-		const elementRect = element.getBoundingClientRect();
-
-		const scrollTop = window.scrollY;
-		const scrollBottom = window.scrollY + window.innerHeight;
-
-		const elementTop = elementRect.top + window.scrollY;
-		const elementBottom = elementRect.bottom + window.scrollY;
-
-		const threshold = 1000;
-
-		const isCloseFromTop = Math.abs(scrollTop - elementTop) <= threshold;
-		const isCloseFromBottom = Math.abs(scrollBottom - elementBottom) <= threshold;
-
-		return isCloseFromTop || isCloseFromBottom;
-	};
 
 	const prevImg = () => {
 		currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
@@ -61,34 +46,6 @@
 		touchStartX = 0;
 		touchEndX = 0;
 	};
-
-	function preload(src: string) {
-		return new Promise(function (resolve) {
-			let img = new Image();
-			img.onload = resolve;
-			img.src = src;
-		});
-	}
-
-	onMount(() => {
-		if (
-			localStorage.getItem('movieGalleryLoaded') === null ||
-			localStorage.getItem('movieGalleryLoaded') === undefined
-		) {
-			localStorage.setItem('movieGalleryLoaded', 'false');
-		}
-		window.addEventListener('scroll', () => {
-			var isLoaded = localStorage.getItem('movieGalleryLoaded');
-			console.log(isLoaded);
-			if (isClose() && isLoaded === 'false') {
-				console.log('hello world');
-				images.forEach((img) => {
-					preload(img.src);
-				});
-				localStorage.setItem('movieGalleryLoaded', JSON.stringify(true));
-			}
-		});
-	});
 </script>
 
 <div
@@ -111,14 +68,7 @@
 		<button on:click={prevImg} class="p-2 ml-2">
 			<ArrowLeft size={30} />
 		</button>
-		<img
-			src={images[currentImgIndex].src}
-			alt={images[currentImgIndex].alt}
-			class="object-fill pl-2 pt-1 max-w-[75vw] max-h-[40vh]"
-			on:touchstart={handleTouchStart}
-			on:touchmove={handleTouchMove}
-			on:touchend={handleTouchEnd}
-		/>
+		<img src={images[currentImgIndex].src} alt={images[currentImgIndex].alt} class="image" />
 		<button on:click={nextImg} class="p-2 mr-2">
 			<ArrowRight size={30} />
 		</button>
@@ -136,5 +86,12 @@
 <style>
 	.circle {
 		transition: background 0.25s ease;
+	}
+	.image {
+		object-fit: cover;
+		padding-left: 2rem;
+		padding-top: 1rem;
+		max-width: 75vw;
+		max-height: 45vw;
 	}
 </style>

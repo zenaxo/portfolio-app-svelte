@@ -80,7 +80,6 @@
 		}
 		window.addEventListener('scroll', () => {
 			var isLoaded = localStorage.getItem('zaptLoaded');
-			console.log(isLoaded);
 			if (isClose() && isLoaded === 'false') {
 				imgs.forEach((img) => {
 					preload(img.src);
