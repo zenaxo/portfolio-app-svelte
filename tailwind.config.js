@@ -11,6 +11,7 @@ export default {
       },
       screens: {
         'mobile': {'max': '690px'},
+        'normal': {'min': '691px'},
       },
       colors: {
         primary: "var(--primary)",

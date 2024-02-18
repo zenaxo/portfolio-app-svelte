@@ -1,76 +1,55 @@
-<script>
+<script lang="ts">
 	import Button from './ui/Button.svelte';
 	import { Linkedin, Download } from 'lucide-svelte';
+	import { onMount } from 'svelte';
 	import heroImg from '../lib/images/portfolioshotflipped.png';
+
+	let text = '';
+	const scrollAmount = 50;
+	const textToType = 'Hi, this is me!';
+
+	onMount(() => {
+		for (let i = 0; i < textToType.length; i++) {
+			setTimeout(() => {
+				text += textToType[i];
+			}, i * 100);
+		}
+	});
 </script>
 
-<div class="flex h-[calc(100vh)] pt-[59px] mobile:flex-col relative border-b border-accentAlt hero">
-	<div
-		class="bg-primary min-w-[50%] h-full items-start pt-48 justify-center flex ml-5 mr-5 text-secondary"
-	>
-		<div class="inline-block z-30">
-			<h1 class="text-6xl font-semibold">WELCOME!</h1>
-			<h2 class="text-6xl pl-10">This is me</h2>
-			<p class="pl-20 text-2xl whitespace-nowrap">
-				I have a big passion for <br />
-				<code class="font-semibold">{'<code>'}</code> and beautiful
-				<span class="font-semibold">design</span>
-			</p>
-			<div class="ml-[20%] flex gap-5 mt-5">
-				<Button
-					type="external"
-					href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
-					className="hover:underline hover:underline-offset-8 items-center"
-				>
-					<Linkedin color="var(--secondary)" fill="var(--secondary)" size={25} />
-					Hannes Sjölander
+<div
+	class="flex h-screen pt-[59px] relative border-b border-accentAlt hero overflow-hidden text-secondary section-start"
+	data-section-name="Welcome"
+>
+	<!--Background-->
+	<div class="w-1/2 absolute left-0 h-full bg-primary z-0"></div>
+	<div class="w-1/2 absolute right-0 h-full bg-accent -skew-x-12 z-0"></div>
+	<div class="w-1/3 absolute right-0 h-1/2 bottom-0 bg-accent z-0"></div>
+	<!--Background end-->
+	<div class="w-full h-full flex items-center justify-around z-30 mobile:flex-col">
+		<div class="relative translate-y-10">
+			<h1
+				class="text-7xl mobile:text-5xl absolute font-bold -translate-y-[calc(100%+26px)] text-nowrap min-w-max"
+				id="heroHead"
+			>
+				{text}
+			</h1>
+			<h2 class="text-2xl mobile:text-xl mb-5">
+				I have a big passion for {'<code>'}<br /> and beautiful design
+			</h2>
+			<div class="flex gap-7 mobile:gap-2 mobile:flex-col">
+				<Button type="external" href="/" className="hover:underline underline-offset-8">
+					<Linkedin fill="var(--secondary)" color="var(--secondary)" />
+					<p>Hannes Sjölander</p>
 				</Button>
-				<Button type="button" className="hover:underline hover:underline-offset-8 items-center">
-					<Download color="var(--secondary)" size={25} />
-					CV
+				<Button type="button" className="hover:underline underline-offset-8">
+					<Download color="var(--secondary)" />
+					<p>Download Resume</p>
 				</Button>
 			</div>
 		</div>
-		<figure class="absolute translate-y-96 left-0 ml-20 -rotate-[12deg]">
-			<code class="text-accentAlt blur-px -skew-x-8 select-none z-0">
-				<span>{'<div>'}</span>
-				<br />
-				<span class="ml-8">{'<h1> Hello, World! </h1>'}</span>
-				<br />
-				<span class="ml-8">{'<p> My name is Hannes </p>'}</span>
-				<br />
-				<span>{'</div>'}</span><span class="animate-cursor">|</span>
-			</code>
-		</figure>
-	</div>
-	<div
-		class="max-h-full mobile:max-h-[50%] mobile:bg-primary bg-accentAlt flex items-end justify-end flex-1"
-	>
-		<img
-			src={heroImg}
-			class="select-none z-0 max-h-[calc(100%-100px)] w-auto mobile:translate-x-32"
-			alt="of me"
-		/>
+		<div class="w-[30%] mobile:w-[60%] aspect-square rounded-full bg-white overflow-hidden">
+			<img src={heroImg} alt="me" class="object-contain aspect-square pt-8" />
+		</div>
 	</div>
 </div>
-
-<style>
-	.animate-cursor {
-		display: inline-block;
-		animation: blink 2s infinite;
-	}
-	@keyframes blink {
-		0%,
-		50%,
-		100% {
-			opacity: 1;
-		}
-		25%,
-		75% {
-			opacity: 0;
-		}
-	}
-	.hero {
-		font-family: 'Raleway', serif;
-	}
-</style>

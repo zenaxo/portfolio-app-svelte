@@ -5,7 +5,7 @@
 	import { Sun, Moon } from 'lucide-svelte';
 	import Menu from './Menu.svelte';
 
-	let isDarkModeToggled = false;
+	let isDarkModeToggled = true;
 	let isMenuOpen = false;
 
 	const toggleDarkMode = () => {
@@ -25,6 +25,9 @@
 			if (isDarkModeToggled) {
 				document.body.classList.add('dark');
 			}
+		} else {
+			localStorage.setItem('isDarkModeToggled', JSON.stringify(true));
+			document.body.classList.add('dark');
 		}
 	});
 
@@ -49,7 +52,7 @@
 			<!--Dark mode toggle-->
 			<button
 				on:click={toggleDarkMode}
-				class="bg-secondary h-7 w-12 rounded-full flex items-center content-center relative"
+				class="bg-secondary h-7 w-12 rounded-full flex items-center relative"
 				aria-label="toggle darkmode"
 			>
 				<div
@@ -65,7 +68,7 @@
 						/>
 					{:else}
 						<!--Moon-->
-						<Moon color="var(--secondary)" size={16} />
+						<Moon color="var(--secondary)" size={18} />
 					{/if}
 				</div>
 			</button>
@@ -94,8 +97,10 @@
 	.menu {
 		transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1);
 	}
-	.menu-button:hover .menu:not(.open) {
-		transform: rotate(45deg);
+	@media screen and (min-width: 650px) {
+		.menu-button:hover .menu:not(.open) {
+			transform: rotate(45deg);
+		}
 	}
 	.open .bar:nth-of-type(2) {
 		width: 100%;

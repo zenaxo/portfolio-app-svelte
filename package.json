@@ -54,6 +54,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"lucide-svelte": "^0.323.0"
+		"lucide-svelte": "^0.323.0",
+		"svelte-fa": "^4.0.2"
 	}
 }
