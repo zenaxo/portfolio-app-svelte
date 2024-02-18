@@ -13,7 +13,7 @@
 		for (let i = 0; i < sectionStartElements.length; i++) {
 			const elementPosition =
 				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
-			if (currentPosition < elementPosition - window.innerHeight) {
+			if (currentPosition < elementPosition - window.innerHeight - 58) {
 				window.scrollTo({
 					top: elementPosition - window.innerHeight,
 					behavior: 'smooth'
@@ -32,7 +32,7 @@
 		for (let i = sectionStartElements.length - 1; i >= 0; i--) {
 			const elementPosition =
 				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
-			if (currentPosition > elementPosition - window.innerHeight) {
+			if (currentPosition > elementPosition - window.innerHeight + 58) {
 				window.scrollTo({
 					top: elementPosition - window.innerHeight,
 					behavior: 'smooth'
