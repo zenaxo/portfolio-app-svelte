@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Triangle } from 'lucide-svelte';
 
 	let percentageVisible = 0;
 	let skewX = 90;
@@ -38,7 +37,6 @@
 	onMount(() => {
 		window.addEventListener('scroll', () => {
 			calculateScrollPercentage();
-			console.log(skewX);
 		});
 	});
 </script>
