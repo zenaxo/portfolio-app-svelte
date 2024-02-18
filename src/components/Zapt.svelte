@@ -55,8 +55,11 @@
 		>
 			Zapt
 		</h2>
-		<p class="text-xl text-center italic mobile:text-sm text-accent">
+		<p class="text-xl text-center italic mobile:text-sm text-accent font-semibold">
 			Design, UI/UX, Storytelling, Group Project
+		</p>
+		<p class="text-xl text-center mobile:text-sm text-secondary max-w-[420px] mt-2">
+			A concept for an all-in-one application for owners of electric vehicles was made with Figma.
 		</p>
 	</div>
 	<div class="flex items-center justify-between w-full max-w-[800px]">

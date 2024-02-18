@@ -9,6 +9,10 @@
 
 	let currentImgIndex = 0;
 	let imagesLoaded = false;
+
+	let touchStartX = 0;
+	let touchEndX = 0;
+
 	const images = [
 		{ src: start, alt: 'Movie Gallery index view' },
 		{ src: detailsOne, alt: 'Movie Gallery detail view' },
@@ -26,6 +30,25 @@
 	};
 	const goToImg = (i: number) => {
 		currentImgIndex = i;
+	};
+
+	const handleTouchStart = (event: TouchEvent) => {
+		touchStartX = event.touches[0].clientX;
+	};
+
+	const handleTouchMove = (event: TouchEvent) => {
+		touchEndX = event.touches[0].clientX;
+	};
+
+	const handleTouchEnd = () => {
+		if (touchEndX < touchStartX) {
+			nextImg();
+		} else if (touchEndX > touchStartX) {
+			prevImg();
+		}
+
+		touchStartX = 0;
+		touchEndX = 0;
 	};
 
 	function preload(src: string) {
@@ -53,8 +76,12 @@
 		<h2 class="text-5xl pt-6 text-center uppercase font-bold whitespace-nowrap mobile:text-3xl">
 			Movie Gallery
 		</h2>
-		<p class="text-xl text-center italic mobile:text-sm text-accent">
+		<p class="text-xl text-center italic mobile:text-sm text-accent font-semibold">
 			Database, Front-end, Design, Group Project
+		</p>
+		<p class="text-xl text-center mobile:text-sm text-secondary max-w-[420px] mt-2">
+			A platform to discover movies was implemented with ASP.NET Core MVC with full CRUD
+			functionallity.
 		</p>
 	</div>
 	<div class="flex items-center justify-center w-full relative max-w-[800px]">
@@ -65,6 +92,9 @@
 			src={images[currentImgIndex].src}
 			alt={images[currentImgIndex].alt}
 			class="object-fill pl-2 pt-1 max-w-[75vw] max-h-[40vh]"
+			on:touchstart={handleTouchStart}
+			on:touchmove={handleTouchMove}
+			on:touchend={handleTouchEnd}
 		/>
 		<button on:click={nextImg} class="p-2 mr-2">
 			<ArrowRight size={30} />

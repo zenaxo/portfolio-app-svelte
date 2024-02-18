@@ -77,13 +77,35 @@
 	onMount(() => {
 		const nextTitle = findNextSectionName();
 
+		const scrollDownElement = document.getElementById('scrollDown') as HTMLElement;
+		const scrollUpElement = document.getElementById('scrollUp') as HTMLElement;
+
+		const scrollDownBtn = document.getElementById('scrollDownBtn') as HTMLButtonElement;
+		const scrollUpBtn = document.getElementById('scrollUpBtn') as HTMLButtonElement;
+
 		if (nextTitle) {
 			nextSectionTitle = nextTitle;
+			scrollDownElement.style.opacity = '100';
+			scrollDownBtn.disabled = false;
+			scrollDownBtn.style.cursor = 'pointer';
+		} else {
+			nextSectionTitle = '';
+			scrollDownElement.style.opacity = '0';
+			scrollDownBtn.disabled = true;
+			scrollDownBtn.style.cursor = 'default';
 		}
 
 		const prevTitle = findPreviousSectionName();
+
 		if (prevTitle) {
 			previousSectionTitle = prevTitle;
+			scrollUpElement.style.opacity = '100';
+			scrollUpBtn.disabled = false;
+			scrollUpBtn.style.cursor = 'pointer';
+		} else {
+			scrollUpElement.style.opacity = '0';
+			scrollDownBtn.disabled = false;
+			scrollUpBtn.style.cursor = 'default';
 		}
 
 		window.addEventListener('scroll', () => {
@@ -142,10 +164,9 @@
 <div
 	class="flex top-0 pt-[59px] mt-5 justify-center left-[50%] translate-x-[-50%] fixed z-30 scroller"
 	id="scrollUp"
-	style="opacity: 0;"
 >
 	<p
-		class="absolute bottom-0 translate-y-full pt-4 font-bold text-secondary opacity-0 pointer-events-none whitespace-nowrap"
+		class="absolute bottom-0 translate-y-full pt-4 font-bold opacity-0 text-secondary pointer-events-none whitespace-nowrap"
 	>
 		{previousSectionTitle}
 	</p>
