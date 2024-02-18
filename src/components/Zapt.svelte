@@ -1,9 +1,5 @@
 <script lang="ts">
-	import start from '$lib/images/zaptstart.png';
-	import karta from '$lib/images/karta.png';
-	import kalender from '$lib/images/kalender.png';
 	import { onMount } from 'svelte';
-	import filter from '$lib/images/filter.png';
 
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
@@ -11,13 +7,12 @@
 
 	let touchStartX = 0;
 	let touchEndX = 0;
-	const closeThreshold = 100;
 
 	const imgs = [
-		{ src: start, alt: 'Zapt start view' },
-		{ src: karta, alt: 'Zapt map view' },
-		{ src: kalender, alt: 'Zapt calender view' },
-		{ src: filter, alt: 'Zapt filter view' }
+		{ src: 'src/lib/images/zaptstart.png', alt: 'Zapt start view' },
+		{ src: 'src/lib/images/karta.png', alt: 'Zapt map view' },
+		{ src: 'src/lib/images/kalender.png', alt: 'Zapt calender view' },
+		{ src: 'src/lib/images/filter.png', alt: 'Zapt filter view' }
 	];
 
 	const isClose = () => {
@@ -30,7 +25,7 @@
 		const elementTop = elementRect.top + window.scrollY;
 		const elementBottom = elementRect.bottom + window.scrollY;
 
-		const threshold = window.innerHeight * 3;
+		const threshold = 1500;
 
 		const isCloseFromTop = Math.abs(scrollTop - elementTop) <= threshold;
 		const isCloseFromBottom = Math.abs(scrollBottom - elementBottom) <= threshold;

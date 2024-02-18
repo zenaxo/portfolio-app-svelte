@@ -1,9 +1,5 @@
 <script lang="ts">
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
-	import start from '$lib/images/mgstart.png';
-	import detailsOne from '$lib/images/mgdetailsone.png';
-	import login from '$lib/images/mglogin.png';
-	import edit from '$lib/images/mgedit.png';
 	import { onMount } from 'svelte';
 
 	let currentImgIndex = 0;
@@ -12,10 +8,10 @@
 	let touchEndX = 0;
 
 	const images = [
-		{ src: start, alt: 'Movie Gallery index view' },
-		{ src: detailsOne, alt: 'Movie Gallery detail view' },
-		{ src: login, alt: 'Movie Gallery log in view' },
-		{ src: edit, alt: 'Movie gallery edit movie view' }
+		{ src: 'src/lib/images/mgstart.png', alt: 'Movie Gallery index view' },
+		{ src: 'src/lib/images/mgdetailsone.png', alt: 'Movie Gallery detail view' },
+		{ src: 'src/lib/images/mglogin.png', alt: 'Movie Gallery log in view' },
+		{ src: 'src/lib/images/mgedit.png', alt: 'Movie gallery edit movie view' }
 	];
 
 	const isClose = () => {
@@ -28,7 +24,7 @@
 		const elementTop = elementRect.top + window.scrollY;
 		const elementBottom = elementRect.bottom + window.scrollY;
 
-		const threshold = window.innerHeight * 3;
+		const threshold = 1000;
 
 		const isCloseFromTop = Math.abs(scrollTop - elementTop) <= threshold;
 		const isCloseFromBottom = Math.abs(scrollBottom - elementBottom) <= threshold;
@@ -85,6 +81,7 @@
 			var isLoaded = localStorage.getItem('movieGalleryLoaded');
 			console.log(isLoaded);
 			if (isClose() && isLoaded === 'false') {
+				console.log('hello world');
 				images.forEach((img) => {
 					preload(img.src);
 				});
