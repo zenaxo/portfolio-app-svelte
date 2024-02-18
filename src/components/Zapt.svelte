@@ -2,11 +2,13 @@
 	import start from '$lib/images/zaptstart.png';
 	import karta from '$lib/images/karta.png';
 	import kalender from '$lib/images/kalender.png';
+	import { onMount } from 'svelte';
 	import filter from '$lib/images/filter.png';
 
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
 	let currentImgIndex = 0;
+	let imagesLoaded = false;
 
 	const imgs = [
 		{ src: start, alt: 'Zapt start view' },
@@ -25,13 +27,25 @@
 	const goToImg = (i: number) => {
 		currentImgIndex = i;
 	};
+
+	function preload(src: string) {
+		return new Promise(function (resolve) {
+			let img = new Image();
+			img.onload = resolve;
+			img.src = src;
+		});
+	}
+
+	onMount(() => {
+		if (!imagesLoaded) {
+			imgs.forEach((img) => {
+				preload(img.src);
+			});
+			imagesLoaded = true;
+		}
+	});
 </script>
 
-<svelte:head>
-	{#each imgs as img}
-		<link rel="preload" as="image" href={img.src} />
-	{/each}
-</svelte:head>
 <div
 	class="flex flex-col items-center justify-between w-full max-w-[1200px] h-[calc(100vh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
 >

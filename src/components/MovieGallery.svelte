@@ -5,9 +5,10 @@
 	import detailsTwo from '$lib/images/mgdetailstwo.png';
 	import login from '$lib/images/mglogin.png';
 	import edit from '$lib/images/mgedit.png';
+	import { onMount } from 'svelte';
 
 	let currentImgIndex = 0;
-
+	let imagesLoaded = false;
 	const images = [
 		{ src: start, alt: 'Movie Gallery index view' },
 		{ src: detailsOne, alt: 'Movie Gallery detail view' },
@@ -26,13 +27,25 @@
 	const goToImg = (i: number) => {
 		currentImgIndex = i;
 	};
+
+	function preload(src: string) {
+		return new Promise(function (resolve) {
+			let img = new Image();
+			img.onload = resolve;
+			img.src = src;
+		});
+	}
+
+	onMount(() => {
+		if (!imagesLoaded) {
+			images.forEach((img) => {
+				preload(img.src);
+			});
+			imagesLoaded = true;
+		}
+	});
 </script>
 
-<svelte:head>
-	{#each images as img}
-		<link rel="preload" as="image" href={img.src} />
-	{/each}
-</svelte:head>
 <div
 	class="flex flex-col items-center justify-between w-full max-w-[1200px] h-[calc(100vh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
 >
