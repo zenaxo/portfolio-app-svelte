@@ -16,9 +16,6 @@
 	});
 </script>
 
-<svelte:head>
-	<link rel="preload" as="image" href={heroImg} />
-</svelte:head>
 <div
 	class="flex h-[100svh] relative border-b border-accentAlt hero overflow-hidden text-secondary section-start"
 	data-section-name="Welcome"

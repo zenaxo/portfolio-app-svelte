@@ -8,7 +8,10 @@
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
 	let currentImgIndex = 0;
-	let imagesLoaded = false;
+
+	let touchStartX = 0;
+	let touchEndX = 0;
+	const closeThreshold = 100;
 
 	const imgs = [
 		{ src: start, alt: 'Zapt start view' },
@@ -16,6 +19,24 @@
 		{ src: kalender, alt: 'Zapt calender view' },
 		{ src: filter, alt: 'Zapt filter view' }
 	];
+
+	const isClose = () => {
+		const element = document.getElementById('zaptPosCheck') as HTMLElement;
+		const elementRect = element.getBoundingClientRect();
+
+		const scrollTop = window.scrollY;
+		const scrollBottom = window.scrollY + window.innerHeight;
+
+		const elementTop = elementRect.top + window.scrollY;
+		const elementBottom = elementRect.bottom + window.scrollY;
+
+		const threshold = window.innerHeight * 3;
+
+		const isCloseFromTop = Math.abs(scrollTop - elementTop) <= threshold;
+		const isCloseFromBottom = Math.abs(scrollBottom - elementBottom) <= threshold;
+
+		return isCloseFromTop || isCloseFromBottom;
+	};
 
 	const prevImg = () => {
 		currentImgIndex = (currentImgIndex - 1 + imgs.length) % imgs.length;
@@ -28,6 +49,25 @@
 		currentImgIndex = i;
 	};
 
+	const handleTouchStart = (event: TouchEvent) => {
+		touchStartX = event.touches[0].clientX;
+	};
+
+	const handleTouchMove = (event: TouchEvent) => {
+		touchEndX = event.touches[0].clientX;
+	};
+
+	const handleTouchEnd = () => {
+		if (touchEndX < touchStartX) {
+			nextImg();
+		} else if (touchEndX > touchStartX) {
+			prevImg();
+		}
+
+		touchStartX = 0;
+		touchEndX = 0;
+	};
+
 	function preload(src: string) {
 		return new Promise(function (resolve) {
 			let img = new Image();
@@ -37,17 +77,28 @@
 	}
 
 	onMount(() => {
-		if (!imagesLoaded) {
-			imgs.forEach((img) => {
-				preload(img.src);
-			});
-			imagesLoaded = true;
+		if (
+			localStorage.getItem('zaptLoaded') === null ||
+			localStorage.getItem('zaptLoaded') === undefined
+		) {
+			localStorage.setItem('zaptLoaded', 'false');
 		}
+		window.addEventListener('scroll', () => {
+			var isLoaded = localStorage.getItem('zaptLoaded');
+			console.log(isLoaded);
+			if (isClose() && isLoaded === 'false') {
+				imgs.forEach((img) => {
+					preload(img.src);
+				});
+				localStorage.setItem('zaptLoaded', 'true');
+			}
+		});
 	});
 </script>
 
 <div
 	class="flex flex-col items-center justify-between w-full max-w-[1200px] h-[calc(100svh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
+	id="zaptPosCheck"
 >
 	<div class="relative">
 		<h2
@@ -70,6 +121,9 @@
 			src={imgs[currentImgIndex].src}
 			alt={imgs[currentImgIndex].alt}
 			class="object-fill pt-1 max-h-[50vh] mobile:max-w-[150px]"
+			on:touchstart={handleTouchStart}
+			on:touchmove={handleTouchMove}
+			on:touchend={handleTouchEnd}
 		/>
 		<button on:click={nextImg} class="p-2">
 			<ArrowRight size={30} />

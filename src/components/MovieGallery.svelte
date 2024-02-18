@@ -2,13 +2,11 @@
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 	import start from '$lib/images/mgstart.png';
 	import detailsOne from '$lib/images/mgdetailsone.png';
-	import detailsTwo from '$lib/images/mgdetailstwo.png';
 	import login from '$lib/images/mglogin.png';
 	import edit from '$lib/images/mgedit.png';
 	import { onMount } from 'svelte';
 
 	let currentImgIndex = 0;
-	let imagesLoaded = false;
 
 	let touchStartX = 0;
 	let touchEndX = 0;
@@ -16,10 +14,27 @@
 	const images = [
 		{ src: start, alt: 'Movie Gallery index view' },
 		{ src: detailsOne, alt: 'Movie Gallery detail view' },
-		{ src: detailsTwo, alt: 'Movie Gallery detail view' },
 		{ src: login, alt: 'Movie Gallery log in view' },
 		{ src: edit, alt: 'Movie gallery edit movie view' }
 	];
+
+	const isClose = () => {
+		const element = document.getElementById('movieGalleryPosCheck') as HTMLElement;
+		const elementRect = element.getBoundingClientRect();
+
+		const scrollTop = window.scrollY;
+		const scrollBottom = window.scrollY + window.innerHeight;
+
+		const elementTop = elementRect.top + window.scrollY;
+		const elementBottom = elementRect.bottom + window.scrollY;
+
+		const threshold = window.innerHeight * 3;
+
+		const isCloseFromTop = Math.abs(scrollTop - elementTop) <= threshold;
+		const isCloseFromBottom = Math.abs(scrollBottom - elementBottom) <= threshold;
+
+		return isCloseFromTop || isCloseFromBottom;
+	};
 
 	const prevImg = () => {
 		currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
@@ -60,17 +75,28 @@
 	}
 
 	onMount(() => {
-		if (!imagesLoaded) {
-			images.forEach((img) => {
-				preload(img.src);
-			});
-			imagesLoaded = true;
+		if (
+			localStorage.getItem('movieGalleryLoaded') === null ||
+			localStorage.getItem('movieGalleryLoaded') === undefined
+		) {
+			localStorage.setItem('movieGalleryLoaded', 'false');
 		}
+		window.addEventListener('scroll', () => {
+			var isLoaded = localStorage.getItem('movieGalleryLoaded');
+			console.log(isLoaded);
+			if (isClose() && isLoaded === 'false') {
+				images.forEach((img) => {
+					preload(img.src);
+				});
+				localStorage.setItem('movieGalleryLoaded', JSON.stringify(true));
+			}
+		});
 	});
 </script>
 
 <div
 	class="flex flex-col items-center justify-between w-full max-w-[1200px] h-[calc(100svh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
+	id="movieGalleryPosCheck"
 >
 	<div>
 		<h2 class="text-5xl pt-6 text-center uppercase font-bold whitespace-nowrap mobile:text-3xl">

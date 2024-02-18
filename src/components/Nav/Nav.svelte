@@ -36,6 +36,9 @@
 	};
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href={isDarkModeToggled ? lightLogo : darkLogo} />
+</svelte:head>
 <nav class="overflow-hidden bg-primary fixed top-0 z-50 w-screen shadow-md">
 	<div class="flex justify-between items-center w-full pt-3 pb-3 pr-3">
 		<div class="ml-5 z-50">
