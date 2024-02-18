@@ -64,7 +64,7 @@
 		<img
 			src={images[currentImgIndex].src}
 			alt={images[currentImgIndex].alt}
-			class="object-fill pl-2 pt-1 max-w-[75vw]"
+			class="object-fill pl-2 pt-1 max-w-[75vw] max-h-[40vh]"
 		/>
 		<button on:click={nextImg} class="p-2 mr-2">
 			<ArrowRight size={30} />

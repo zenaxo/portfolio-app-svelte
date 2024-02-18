@@ -66,7 +66,7 @@
 		<img
 			src={imgs[currentImgIndex].src}
 			alt={imgs[currentImgIndex].alt}
-			class="object-fill pt-1 max-h-[600px] mobile:max-w-[150px]"
+			class="object-fill pt-1 max-h-[50vh] mobile:max-w-[150px]"
 		/>
 		<button on:click={nextImg} class="p-2">
 			<ArrowRight size={30} />

@@ -26,7 +26,7 @@
 <div>
 	{#if isMenuOpen}
 		<button
-			class="fixed inset-0 bg-[rgba(0,0,0,0.7)] z-50 mt-[59px] cursor-default"
+			class="fixed inset-0 bg-[rgba(0,0,0,0.7)] z-50 mt-[60px] cursor-default"
 			on:click={toggleMenu}
 			type="button"
 		></button>
