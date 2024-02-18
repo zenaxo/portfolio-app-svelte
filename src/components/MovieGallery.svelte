@@ -1,14 +1,19 @@
 <script lang="ts">
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
+	import start from '$lib/images/mgstart.png';
+	import detailsOne from '$lib/images/mgdetailsone.png';
+	import detailsTwo from '$lib/images/mgdetailstwo.png';
+	import login from '$lib/images/mglogin.png';
+	import edit from '$lib/images/mgedit.png';
 
 	let currentImgIndex = 0;
 
 	const images = [
-		{ src: 'src/lib/images/mgstart.png', alt: 'Movie Gallery index view' },
-		{ src: 'src/lib/images/mgdetailsone.png', alt: 'Movie Gallery detail view' },
-		{ src: 'src/lib/images/mgdetailstwo.png', alt: 'Movie Gallery detail view' },
-		{ src: 'src/lib/images/mglogin.png', alt: 'Movie Gallery log in view' },
-		{ src: 'src/lib/images/mgedit.png', alt: 'Movie gallery edit movie view' }
+		{ src: start, alt: 'Movie Gallery index view' },
+		{ src: detailsOne, alt: 'Movie Gallery detail view' },
+		{ src: detailsTwo, alt: 'Movie Gallery detail view' },
+		{ src: login, alt: 'Movie Gallery log in view' },
+		{ src: edit, alt: 'Movie gallery edit movie view' }
 	];
 
 	const prevImg = () => {
