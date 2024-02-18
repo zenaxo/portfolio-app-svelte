@@ -43,7 +43,7 @@
 
 <div class="absolute w-full h-full bg-accent z-30" style={`transform: skewX(${-skewX}deg);`}></div>
 <div
-	class="w-full max-w-[1200px] max-h-[calc(100vh-58px)] h-[calc(100vh-58px)] flex gap-8 flex-col z-20"
+	class="w-full max-w-[1200px] max-h-[calc(100svh-58px)] h-[calc(100svh-58px)] flex gap-8 flex-col z-20"
 	id="techContainer"
 >
 	<div
