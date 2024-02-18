@@ -11,10 +11,11 @@
 		const currentPosition = window.scrollY;
 
 		for (let i = 0; i < sectionStartElements.length; i++) {
-			const elementPosition = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition < elementPosition - 58) {
+			const elementPosition =
+				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
+			if (currentPosition < elementPosition - window.innerHeight) {
 				window.scrollTo({
-					top: elementPosition - 58,
+					top: elementPosition - window.innerHeight,
 					behavior: 'smooth'
 				});
 				break;
@@ -29,10 +30,11 @@
 		const currentPosition = window.scrollY;
 
 		for (let i = sectionStartElements.length - 1; i >= 0; i--) {
-			const elementPosition = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition > elementPosition) {
+			const elementPosition =
+				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
+			if (currentPosition > elementPosition - window.innerHeight) {
 				window.scrollTo({
-					top: elementPosition - 58,
+					top: elementPosition - window.innerHeight,
 					behavior: 'smooth'
 				});
 				break;
