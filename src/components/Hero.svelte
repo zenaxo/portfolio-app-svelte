@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="flex h-[calc(100vh+59px)] min-h-[calc(100vh+59px)] pt-[59px] relative border-b border-accentAlt hero overflow-hidden text-secondary section-start"
+	class="flex h-screen relative border-b border-accentAlt hero overflow-hidden text-secondary section-start"
 	data-section-name="Welcome"
 >
 	<!--Background-->
@@ -26,7 +26,7 @@
 	<div class="w-1/2 absolute right-0 h-full bg-accent -skew-x-12 z-0"></div>
 	<div class="w-1/3 absolute right-0 h-1/2 bottom-0 bg-accent z-0"></div>
 	<!--Background end-->
-	<div class="w-full h-full flex items-center justify-around z-30 mobile:flex-col">
+	<div class="w-full pt-[59px] h-full flex items-center justify-around z-30 mobile:flex-col">
 		<div class="relative translate-y-10">
 			<h1
 				class="text-7xl mobile:text-5xl absolute font-bold -translate-y-[calc(100%+26px)] text-nowrap min-w-max"
