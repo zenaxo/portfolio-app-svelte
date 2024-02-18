@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="flex h-[calc(100vh-59px)] min-h-[calc(100vh-59px)] pt-[59px] relative border-b border-accentAlt hero overflow-hidden text-secondary section-start"
+	class="flex h-[calc(100vh+59px)] min-h-[calc(100vh+59px)] pt-[59px] relative border-b border-accentAlt hero overflow-hidden text-secondary section-start"
 	data-section-name="Welcome"
 >
 	<!--Background-->
