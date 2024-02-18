@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import start from '$lib/images/zaptstart.png';
+	import karta from '$lib/images/karta.png';
+	import kalender from '$lib/images/kalender.png';
+	import filter from '$lib/images/filter.png';
 
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
@@ -9,29 +13,11 @@
 	let touchEndX = 0;
 
 	const imgs = [
-		{ src: 'src/lib/images/zaptstart.png', alt: 'Zapt start view' },
-		{ src: 'src/lib/images/karta.png', alt: 'Zapt map view' },
-		{ src: 'src/lib/images/kalender.png', alt: 'Zapt calender view' },
-		{ src: 'src/lib/images/filter.png', alt: 'Zapt filter view' }
+		{ src: start, alt: 'Zapt start view' },
+		{ src: karta, alt: 'Zapt map view' },
+		{ src: kalender, alt: 'Zapt calender view' },
+		{ src: filter, alt: 'Zapt filter view' }
 	];
-
-	const isClose = () => {
-		const element = document.getElementById('zaptPosCheck') as HTMLElement;
-		const elementRect = element.getBoundingClientRect();
-
-		const scrollTop = window.scrollY;
-		const scrollBottom = window.scrollY + window.innerHeight;
-
-		const elementTop = elementRect.top + window.scrollY;
-		const elementBottom = elementRect.bottom + window.scrollY;
-
-		const threshold = 1500;
-
-		const isCloseFromTop = Math.abs(scrollTop - elementTop) <= threshold;
-		const isCloseFromBottom = Math.abs(scrollBottom - elementBottom) <= threshold;
-
-		return isCloseFromTop || isCloseFromBottom;
-	};
 
 	const prevImg = () => {
 		currentImgIndex = (currentImgIndex - 1 + imgs.length) % imgs.length;
@@ -70,7 +56,16 @@
 			img.src = src;
 		});
 	}
-
+	const preloadImgs = () => {
+		var isLoaded = localStorage.getItem('zaptLoaded');
+		if (isLoaded === 'false') {
+			imgs.forEach((img) => {
+				preload(img.src);
+			});
+			localStorage.setItem('zaptLoaded', 'true');
+			window.removeEventListener('scroll', preloadImgs);
+		}
+	};
 	onMount(() => {
 		if (
 			localStorage.getItem('zaptLoaded') === null ||
@@ -79,13 +74,7 @@
 			localStorage.setItem('zaptLoaded', 'false');
 		}
 		window.addEventListener('scroll', () => {
-			var isLoaded = localStorage.getItem('zaptLoaded');
-			if (isClose() && isLoaded === 'false') {
-				imgs.forEach((img) => {
-					preload(img.src);
-				});
-				localStorage.setItem('zaptLoaded', 'true');
-			}
+			preloadImgs();
 		});
 	});
 </script>

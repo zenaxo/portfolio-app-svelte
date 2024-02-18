@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
+	import { onMount } from 'svelte';
 	import start from '$lib/images/mgstart.png';
 	import details from '$lib/images/mgdetailsone.png';
 	import login from '$lib/images/mglogin.png';
@@ -46,6 +47,34 @@
 		touchStartX = 0;
 		touchEndX = 0;
 	};
+	function preload(src: string) {
+		return new Promise(function (resolve) {
+			let img = new Image();
+			img.onload = resolve;
+			img.src = src;
+		});
+	}
+	const preloadImgs = () => {
+		var isLoaded = localStorage.getItem('movieGalleryLoaded');
+		if (isLoaded === 'false') {
+			images.forEach((img) => {
+				preload(img.src);
+			});
+			localStorage.setItem('movieGalleryLoaded', 'true');
+			window.removeEventListener('scroll', preloadImgs);
+		}
+	};
+	onMount(() => {
+		if (
+			localStorage.getItem('movieGalleryLoaded') === null ||
+			localStorage.getItem('movieGalleryLoaded') === undefined
+		) {
+			localStorage.setItem('movieGalleryLoaded', 'false');
+		}
+		window.addEventListener('scroll', () => {
+			preloadImgs();
+		});
+	});
 </script>
 
 <div
@@ -68,7 +97,14 @@
 		<button on:click={prevImg} class="p-2 ml-2">
 			<ArrowLeft size={30} />
 		</button>
-		<img src={images[currentImgIndex].src} alt={images[currentImgIndex].alt} class="image" />
+		<img
+			src={images[currentImgIndex].src}
+			alt={images[currentImgIndex].alt}
+			class="image"
+			on:touchstart={handleTouchStart}
+			on:touchend={handleTouchEnd}
+			on:touchmove={handleTouchMove}
+		/>
 		<button on:click={nextImg} class="p-2 mr-2">
 			<ArrowRight size={30} />
 		</button>
