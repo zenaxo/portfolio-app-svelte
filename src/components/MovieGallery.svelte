@@ -1,34 +1,33 @@
 <script lang="ts">
-	import start from '$lib/images/mgstart.png';
-	import detailsOne from '$lib/images/mgdetailsone.png';
-	import detailsTwo from '$lib/images/mgdetailstwo.png';
-	import edit from '$lib/images/mgedit.png';
-	import login from '$lib/images/mglogin.png';
-
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
 	let currentImgIndex = 0;
 
-	const imgs = [
-		{ src: start, alt: 'Movie Gallery index view' },
-		{ src: detailsOne, alt: 'Movie Gallery detail view' },
-		{ src: detailsTwo, alt: 'Movie Gallery detail view' },
-		{ src: login, alt: 'Movie Gallery log in view' },
-		{ src: edit, alt: 'Movie gallery edit movie view' }
+	const images = [
+		{ src: 'src/lib/images/mgstart.png', alt: 'Movie Gallery index view' },
+		{ src: 'src/lib/images/mgdetailsone.png', alt: 'Movie Gallery detail view' },
+		{ src: 'src/lib/images/mgdetailstwo.png', alt: 'Movie Gallery detail view' },
+		{ src: 'src/lib/images/mglogin.png', alt: 'Movie Gallery log in view' },
+		{ src: 'src/lib/images/mgedit.png', alt: 'Movie gallery edit movie view' }
 	];
 
 	const prevImg = () => {
-		currentImgIndex = (currentImgIndex - 1 + imgs.length) % imgs.length;
+		currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
 	};
 
 	const nextImg = () => {
-		currentImgIndex = (currentImgIndex + 1) % imgs.length;
+		currentImgIndex = (currentImgIndex + 1) % images.length;
 	};
 	const goToImg = (i: number) => {
 		currentImgIndex = i;
 	};
 </script>
 
+<svelte:head>
+	{#each images as img}
+		<link rel="preload" as="image" href={img.src} />
+	{/each}
+</svelte:head>
 <div
 	class="flex flex-col items-center justify-between w-full max-w-[1200px] h-[calc(100vh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
 >
@@ -45,8 +44,8 @@
 			<ArrowLeft size={30} />
 		</button>
 		<img
-			src={imgs[currentImgIndex].src}
-			alt={imgs[currentImgIndex].alt}
+			src={images[currentImgIndex].src}
+			alt={images[currentImgIndex].alt}
 			class="object-fill pl-2 pt-1 max-w-[75vw]"
 		/>
 		<button on:click={nextImg} class="p-2 mr-2">
@@ -54,7 +53,7 @@
 		</button>
 	</div>
 	<div class="flex gap-4 pb-6">
-		{#each { length: imgs.length } as _, i}
+		{#each { length: images.length } as _, i}
 			<button
 				class={`h-5 mobile:h-4 aspect-square shadow-lg circle rounded-full border-secondary border-2 ${i === currentImgIndex ? 'bg-secondary' : 'hover:bg-accentAlt'}`}
 				on:click={() => goToImg(i)}

@@ -7,7 +7,6 @@
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
 	let currentImgIndex = 0;
-	let isInfoOpen = false;
 
 	const imgs = [
 		{ src: start, alt: 'Zapt start view' },
@@ -28,6 +27,11 @@
 	};
 </script>
 
+<svelte:head>
+	{#each imgs as img}
+		<link rel="preload" as="image" href={img.src} />
+	{/each}
+</svelte:head>
 <div
 	class="flex flex-col items-center justify-between w-full max-w-[1200px] h-[calc(100vh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
 >
