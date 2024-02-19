@@ -90,7 +90,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-around w-full max-w-[1200px] h-[calc(100dvh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
+	class="flex flex-col items-center justify-around w-full max-w-[1200px] h-[calc(100vh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
 	id="zaptPosCheck"
 >
 	<div class="relative flex flex-col items-center">
