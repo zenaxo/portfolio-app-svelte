@@ -4,8 +4,8 @@
 </script>
 
 <div class="pt-24 translate-x-0 pl-5 pr-5 max-h[calc(100svh - 58px)]">
-	<h2 class="text-5xl mb-12 font-bold">More about me</h2>
-	<p class="text-xl mb-10 max-w-[700px]">
+	<h2 class="text-5xl mobile:text-2xl mb-12 mobile:mb-6 font-bold">More about me</h2>
+	<p class="text-xl mobile:text-base mb-10 max-w-[700px]">
 		I am a passionate interaction designer with a flair for turning ideas into immersive digital
 		experiences. As a civil engineering student exploring the vibrant world of interaction design, I
 		thrive on crafting intuitive solutions that bridge the gap between form and function.
@@ -13,7 +13,7 @@
 			>Let's build the future of user-centric design together!</span
 		>
 	</p>
-	<div class="flex gap-5 text-nowrap flex-wrap">
+	<div class="flex gap-5 text-nowrap flex-wrap text-xl mobile:text-base">
 		<Button
 			type="external"
 			className="hover:underline underline-offset-4"
