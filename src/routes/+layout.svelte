@@ -28,7 +28,7 @@
 	<meta property="description" content="Hannes Sjölander Portfolio" />
 	<meta property="locale" content="sv_Se" />
 	<meta property="locale:alternate" content="en_US" />
-	<meta property="og:url" content="https://hannessjolander.me" />
+	<meta property="og:url" content="https://hannessjolander.com" />
 	<meta property="og:type" content="portfolio website" />
 	<meta property="og:site_name" content="Hannes Sjölander" />
 	<link
