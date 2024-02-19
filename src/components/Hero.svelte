@@ -40,7 +40,12 @@
 			</h2>
 			<div class="flex gap-7 mobile:gap-2 mobile:flex-col">
 				<div class="hero-button">
-					<Button type="external" href="/" className="underline-offset-8 flex items-center">
+					<Button
+						type="external"
+						href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
+						name="LinkedIn"
+						className="underline-offset-8 flex items-center"
+					>
 						<i class="fa-brands fa-linkedin-in fa-xl" color="var(--secondary)"></i>
 						<p>Hannes Sjölander</p>
 					</Button>

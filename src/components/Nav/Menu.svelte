@@ -43,7 +43,7 @@
 					<a
 						href={link.href}
 						class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
-						>{link.text}</a
+						aria-label={`Go to ${link.text}`}>{link.text}</a
 					>
 				</li>
 			{/each}

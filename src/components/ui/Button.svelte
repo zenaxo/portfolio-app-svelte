@@ -9,11 +9,11 @@
 </script>
 
 {#if type == 'external'}
-	<a {href} target="_blank" class={styleProp} on:click={onClick}>
+	<a {href} target="_blank" class={styleProp} on:click={onClick} aria-label={name}>
 		<slot />
 	</a>
 {:else if type == 'internal'}
-	<a {href} class={styleProp} on:click={onClick}>
+	<a {href} class={styleProp} on:click={onClick} aria-label={name}>
 		<slot />
 	</a>
 {:else if type == 'button'}

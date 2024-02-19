@@ -3,8 +3,8 @@
 	import { Linkedin, Mail, Phone } from 'lucide-svelte';
 </script>
 
-<div class="pt-24 translate-x-0 pl-5 pr-5">
-	<h2 class="text-5xl mb-12 font-bold slide-in-from-left">More about me</h2>
+<div class="pt-24 translate-x-0 pl-5 pr-5 max-h[calc(100svh - 58px)]">
+	<h2 class="text-5xl mb-12 font-bold">More about me</h2>
 	<p class="text-xl mb-10 max-w-[700px]">
 		I am a passionate interaction designer with a flair for turning ideas into immersive digital
 		experiences. As a civil engineering student exploring the vibrant world of interaction design, I
@@ -18,6 +18,7 @@
 			type="external"
 			className="hover:underline underline-offset-4"
 			href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
+			name="my LinkedIn"
 		>
 			<Linkedin color="var(--secondary)" fill="var(--secondary)" size={24} />
 			Hannes Sjölander
@@ -26,11 +27,17 @@
 			type="external"
 			className="hover:underline underline-offset-4"
 			href="mailto:sjolander48@live.se"
+			name="Send a mail to me"
 		>
 			<Mail color="var(--secondary)" size={24} />
 			sjolander48@live.se
 		</Button>
-		<Button type="external" className="hover:underline underline-offset-4" href="tel:+46735343819">
+		<Button
+			type="external"
+			className="hover:underline underline-offset-4"
+			href="tel:+46735343819"
+			name="Call me"
+		>
 			<Phone color="var(--secondary)" size={24} />
 			+46 73 534 38 19
 		</Button>

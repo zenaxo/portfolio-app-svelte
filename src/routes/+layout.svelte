@@ -17,6 +17,20 @@
 	<link rel="mask-icon" href={maskIcon} color="#5bbad5" />
 	<meta name="msapplication-TileColor" content="#2d89ef" />
 	<meta name="theme-color" content="#ffffff" />
+	<meta name="description" content="Hannes Sjölander portfolio" />
+	<meta name="author" content="Hannes Sjölander" />
+	<meta
+		name="keywords"
+		content="Hannes Sjölander, portfolio, Svelte, React, Tailwind, Interaction design, developer, designer, .NET, SQL, javascript"
+	/>
+	<meta property="og:title" content="Hannes Sjölander Portfolio" />
+	<meta property="description" content="Hannes Sjölander Portfolio" />
+	<meta property="locale" content="sv_Se" />
+	<meta property="og:image" content="lib/images/portfolioshotflipped.png" />
+	<meta property="locale:alternate" content="en_US" />
+	<meta property="og:url" content="https://hannessjolander.me" />
+	<meta property="og:type" content="portfolio website" />
+	<meta property="og:site_name" content="Hannes Sjölander" />
 	<link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"

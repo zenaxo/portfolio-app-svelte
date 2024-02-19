@@ -110,6 +110,7 @@
 		<img
 			src={images[currentImgIndex].src}
 			alt={images[currentImgIndex].alt}
+			width="800"
 			class="movie-gallery-images object-cover pl-2 pt-1 max-w-[800px] mobile:max-w-[75vw] max-h-[45vh]"
 		/>
 		<button on:click={nextImg} class="p-2 mr-2" aria-label="Next image">
