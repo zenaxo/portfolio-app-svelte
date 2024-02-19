@@ -42,10 +42,7 @@
 </script>
 
 <div class="absolute w-full h-full bg-accent z-30" style={`transform: skewX(${-skewX}deg);`}></div>
-<div
-	class="w-full max-w-[1200px] max-h-[calc(100vh-58px)] h-[calc(100vh-58px)] flex gap-8 flex-col z-20"
-	id="techContainer"
->
+<div class="w-full max-w-[1200px] min-h-full flex gap-8 flex-col z-20" id="techContainer">
 	<div
 		class="p-20 mobile:p-0 flex items-center mobile:pl-5 mobile:items-center mobile:gap-4 justify-between h-full flex-wrap"
 	>

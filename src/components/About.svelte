@@ -3,7 +3,7 @@
 	import { Linkedin, Mail, Phone } from 'lucide-svelte';
 </script>
 
-<div class="pt-24 translate-x-0 pl-5 pr-5 max-h[calc(100vh-58px)]">
+<div class="pt-24 translate-x-0 pl-5 pr-5 min-h-full">
 	<h2 class="text-5xl mobile:text-2xl mb-12 mobile:mb-6 font-bold">More about me</h2>
 	<p class="text-xl mobile:text-base mb-10 max-w-[700px]">
 		I am a passionate interaction designer with a flair for turning ideas into immersive digital
