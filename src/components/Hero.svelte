@@ -2,7 +2,7 @@
 	import Button from './ui/Button.svelte';
 	import { Linkedin, Download } from 'lucide-svelte';
 	import { onMount } from 'svelte';
-	import heroImg from '../lib/images/portfolioshotflipped.png';
+	import heroImg from '../lib/images/portfolioshotflipped.webp';
 
 	let text = '';
 	const textToType = 'Hi, this is me!';
@@ -44,7 +44,7 @@
 					<Linkedin fill="var(--secondary)" color="var(--secondary)" />
 					<p>Hannes Sjölander</p>
 				</Button>
-				<Button type="button" className="hover:underline underline-offset-8">
+				<Button type="button" className="hover:underline underline-offset-8" name="download resume">
 					<Download color="var(--secondary)" />
 					<p>Download Resume</p>
 				</Button>

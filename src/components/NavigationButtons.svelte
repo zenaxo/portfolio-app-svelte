@@ -157,6 +157,7 @@
 		on:click={handleScrollClickDown}
 		class="bg-accentAlt mb-5 h-12 rounded-full aspect-square shadow-xl flex items-center justify-center"
 		id="scrollDownBtn"
+		name="Scroll down"
 	>
 		<ArrowBigDown fill="var(--accent)" color="var(--accentAlt)" size="50" />
 	</button>
@@ -175,6 +176,7 @@
 		class="bg-accentAlt h-12 rounded-full aspect-square shadow-xl flex items-center justify-center"
 		style="cursor: default;"
 		id="scrollUpBtn"
+		name="Scroll up"
 	>
 		<ArrowBigDown fill="var(--accent)" color="var(--accentAlt)" size="50" class="rotate-180" />
 	</button>

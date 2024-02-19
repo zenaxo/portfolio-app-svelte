@@ -30,11 +30,7 @@
 			<Mail color="var(--secondary)" size={24} />
 			sjolander48@live.se
 		</Button>
-		<Button
-			type="external"
-			className="hover:underline underline-offset-4"
-			href="mailto:sjolander48@live.se"
-		>
+		<Button type="external" className="hover:underline underline-offset-4" href="tel:+46735343819">
 			<Phone color="var(--secondary)" size={24} />
 			+46 73 534 38 19
 		</Button>

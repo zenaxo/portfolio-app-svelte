@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 	import { onMount } from 'svelte';
-	import start from '$lib/images/mgstart.png';
-	import details from '$lib/images/mgdetailsone.png';
-	import login from '$lib/images/mglogin.png';
-	import edit from '$lib/images/mgedit.png';
+	import start from '$lib/images/mgstart.webp';
+	import details from '$lib/images/mgdetailsone.webp';
+	import login from '$lib/images/mglogin.webp';
+	import edit from '$lib/images/mgedit.webp';
 
 	let currentImgIndex = 0;
 
@@ -74,6 +74,16 @@
 		window.addEventListener('scroll', () => {
 			preloadImgs();
 		});
+		const imgElement = document.querySelector('.movie-gallery-images') as HTMLElement;
+		imgElement.addEventListener('touchstart', handleTouchStart, { passive: true });
+		imgElement.addEventListener('touchmove', handleTouchMove, { passive: true });
+		imgElement.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+		return () => {
+			imgElement.removeEventListener('touchstart', handleTouchStart);
+			imgElement.removeEventListener('touchmove', handleTouchMove);
+			imgElement.removeEventListener('touchend', handleTouchEnd);
+		};
 	});
 </script>
 
@@ -94,18 +104,15 @@
 		</p>
 	</div>
 	<div class="flex items-center justify-center w-full relative max-w-[800px]">
-		<button on:click={prevImg} class="p-2 ml-2">
+		<button on:click={prevImg} class="p-2 ml-2" name="Previous image">
 			<ArrowLeft size={30} />
 		</button>
 		<img
 			src={images[currentImgIndex].src}
 			alt={images[currentImgIndex].alt}
-			class="image"
-			on:touchstart={handleTouchStart}
-			on:touchend={handleTouchEnd}
-			on:touchmove={handleTouchMove}
+			class="movie-gallery-images object-cover pl-2 pt-1 max-w-[75vw] max-h-[45vh]"
 		/>
-		<button on:click={nextImg} class="p-2 mr-2">
+		<button on:click={nextImg} class="p-2 mr-2" name="Next image">
 			<ArrowRight size={30} />
 		</button>
 	</div>
@@ -114,6 +121,7 @@
 			<button
 				class={`h-5 mobile:h-4 aspect-square shadow-lg circle rounded-full border-secondary border-2 ${i === currentImgIndex ? 'bg-secondary' : 'hover:bg-accentAlt'}`}
 				on:click={() => goToImg(i)}
+				name="Choose image"
 			></button>
 		{/each}
 	</div>
@@ -122,12 +130,5 @@
 <style>
 	.circle {
 		transition: background 0.25s ease;
-	}
-	.image {
-		object-fit: cover;
-		padding-left: 2rem;
-		padding-top: 1rem;
-		max-width: 75vw;
-		max-height: 45vw;
 	}
 </style>

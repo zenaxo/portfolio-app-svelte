@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import start from '$lib/images/zaptstart.png';
-	import karta from '$lib/images/karta.png';
-	import kalender from '$lib/images/kalender.png';
-	import filter from '$lib/images/filter.png';
+	import start from '$lib/images/zaptstart.webp';
+	import karta from '$lib/images/karta.webp';
+	import kalender from '$lib/images/kalender.webp';
+	import filter from '$lib/images/filter.webp';
 
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 
@@ -76,6 +76,16 @@
 		window.addEventListener('scroll', () => {
 			preloadImgs();
 		});
+		const imgElement = document.querySelector('.zapt-images') as HTMLElement;
+		imgElement.addEventListener('touchstart', handleTouchStart, { passive: true });
+		imgElement.addEventListener('touchmove', handleTouchMove, { passive: true });
+		imgElement.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+		return () => {
+			imgElement.removeEventListener('touchstart', handleTouchStart);
+			imgElement.removeEventListener('touchmove', handleTouchMove);
+			imgElement.removeEventListener('touchend', handleTouchEnd);
+		};
 	});
 </script>
 
@@ -97,18 +107,15 @@
 		</p>
 	</div>
 	<div class="flex items-center justify-between w-full max-w-[800px]">
-		<button on:click={prevImg} class="p-2">
+		<button on:click={prevImg} class="p-2" name="Previous image">
 			<ArrowLeft size={30} />
 		</button>
 		<img
 			src={imgs[currentImgIndex].src}
 			alt={imgs[currentImgIndex].alt}
-			class="object-fill pt-1 max-h-[50vh] mobile:max-w-[150px]"
-			on:touchstart={handleTouchStart}
-			on:touchmove={handleTouchMove}
-			on:touchend={handleTouchEnd}
+			class="object-fill pt-1 max-h-[50vh] mobile:max-w-[150px] zapt-images"
 		/>
-		<button on:click={nextImg} class="p-2">
+		<button on:click={nextImg} class="p-2" name="Next image">
 			<ArrowRight size={30} />
 		</button>
 	</div>
@@ -117,6 +124,7 @@
 			<button
 				class={`h-5 mobile:h-4 aspect-square shadow-lg circle rounded-full border-secondary border-2 ${i === currentImgIndex ? 'bg-secondary' : 'hover:bg-accentAlt'}`}
 				on:click={() => goToImg(i)}
+				name="Choose image"
 			></button>
 		{/each}
 	</div>

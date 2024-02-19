@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let type: 'external' | 'internal' | 'button';
+	export let name: string = 'action';
 	export let href: string = '';
 	export let className: string = '';
 	export let onClick: () => void = () => {};
@@ -16,7 +17,7 @@
 		<slot />
 	</a>
 {:else if type == 'button'}
-	<button class={styleProp} on:click={onClick}>
+	<button class={styleProp} on:click={onClick} {name}>
 		<slot />
 	</button>
 {/if}

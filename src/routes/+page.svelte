@@ -9,6 +9,9 @@
 	import Zapt from '../components/Zapt.svelte';
 </script>
 
+<svelte:head>
+	<title>Home - Hannes Sjölander</title>
+</svelte:head>
 <Hero />
 <main class="flex flex-col">
 	<Section sectionName="Begin">
