@@ -12,8 +12,10 @@
 <svelte:head>
 	<title>Home - Hannes Sjölander</title>
 </svelte:head>
-<Hero />
-<main class="flex flex-col">
+<main class="flex flex-col pt-[59px]">
+	<Section sectionName="Welcome">
+		<Hero />
+	</Section>
 	<Section sectionName="Begin">
 		<Begin />
 	</Section>
