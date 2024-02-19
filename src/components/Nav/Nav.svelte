@@ -53,7 +53,7 @@
 			<button
 				on:click={toggleDarkMode}
 				class="bg-secondary h-7 w-12 rounded-full flex items-center relative"
-				name="toggle darkmode"
+				aria-label="toggle darkmode"
 			>
 				<div
 					class={`circle h-5 w-5 flex justify-center items-center bg-primary rounded-full ml-1 mr-1 transition-transform duration-100 ${isDarkModeToggled ? 'translate-x-0' : 'translate-x-full'}`}
@@ -73,7 +73,7 @@
 				</div>
 			</button>
 			<!--Menu button-->
-			<button on:click={toggleMenu} name="Toggle menu" type="button" class="menu-button">
+			<button on:click={toggleMenu} aria-label="Toggle menu" type="button" class="menu-button">
 				<div
 					class={`menu gap-2 ${isMenuOpen ? 'open' : ''} relative flex flex-col justify-around w-[2rem] h-[2rem] cursor-pointer`}
 				>

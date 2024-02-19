@@ -17,7 +17,7 @@
 		<slot />
 	</a>
 {:else if type == 'button'}
-	<button class={styleProp} on:click={onClick} {name}>
+	<button class={styleProp} on:click={onClick} aria-label={name}>
 		<slot />
 	</button>
 {/if}

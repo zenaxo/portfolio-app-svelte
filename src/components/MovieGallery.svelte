@@ -104,7 +104,7 @@
 		</p>
 	</div>
 	<div class="flex items-center justify-center w-full relative max-w-[800px]">
-		<button on:click={prevImg} class="p-2 ml-2" name="Previous image">
+		<button on:click={prevImg} class="p-2 ml-2" aria-label="Previous image">
 			<ArrowLeft size={30} />
 		</button>
 		<img
@@ -112,7 +112,7 @@
 			alt={images[currentImgIndex].alt}
 			class="movie-gallery-images object-cover pl-2 pt-1 max-w-[75vw] max-h-[45vh]"
 		/>
-		<button on:click={nextImg} class="p-2 mr-2" name="Next image">
+		<button on:click={nextImg} class="p-2 mr-2" aria-label="Next image">
 			<ArrowRight size={30} />
 		</button>
 	</div>
@@ -121,7 +121,7 @@
 			<button
 				class={`h-5 mobile:h-4 aspect-square shadow-lg circle rounded-full border-secondary border-2 ${i === currentImgIndex ? 'bg-secondary' : 'hover:bg-accentAlt'}`}
 				on:click={() => goToImg(i)}
-				name="Choose image"
+				aria-label="Choose image"
 			></button>
 		{/each}
 	</div>

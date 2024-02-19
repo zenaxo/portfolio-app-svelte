@@ -107,7 +107,7 @@
 		</p>
 	</div>
 	<div class="flex items-center justify-between w-full max-w-[800px]">
-		<button on:click={prevImg} class="p-2" name="Previous image">
+		<button on:click={prevImg} class="p-2" aria-label="Previous image">
 			<ArrowLeft size={30} />
 		</button>
 		<img
@@ -115,7 +115,7 @@
 			alt={imgs[currentImgIndex].alt}
 			class="object-fill pt-1 max-h-[50vh] mobile:max-w-[150px] zapt-images"
 		/>
-		<button on:click={nextImg} class="p-2" name="Next image">
+		<button on:click={nextImg} class="p-2" aria-label="Next image">
 			<ArrowRight size={30} />
 		</button>
 	</div>
@@ -124,7 +124,7 @@
 			<button
 				class={`h-5 mobile:h-4 aspect-square shadow-lg circle rounded-full border-secondary border-2 ${i === currentImgIndex ? 'bg-secondary' : 'hover:bg-accentAlt'}`}
 				on:click={() => goToImg(i)}
-				name="Choose image"
+				aria-label="Choose image"
 			></button>
 		{/each}
 	</div>

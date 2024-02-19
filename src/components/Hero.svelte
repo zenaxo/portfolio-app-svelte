@@ -51,7 +51,13 @@
 			</div>
 		</div>
 		<div class="w-[30%] mobile:w-[60%] aspect-square rounded-full bg-white overflow-hidden">
-			<img src={heroImg} alt="me" class="object-contain aspect-square pt-8" height="200" />
+			<img
+				src={heroImg}
+				alt="me"
+				class="object-contain aspect-square pt-8"
+				width="300"
+				height="500"
+			/>
 		</div>
 	</div>
 </div>

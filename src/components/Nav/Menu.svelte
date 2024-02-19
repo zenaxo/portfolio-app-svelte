@@ -29,7 +29,7 @@
 			class="fixed inset-0 bg-[rgba(0,0,0,0.7)] z-50 mt-[60px] cursor-default"
 			on:click={toggleMenu}
 			type="button"
-			name="close menu"
+			aria-label="close menu"
 		></button>
 	{/if}
 </div>
@@ -51,7 +51,7 @@
 				<button
 					on:click={toggleMenu}
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover"
-					name="close menu"
+					aria-label="close menu"
 				>
 					<X color="var(--secondary)" />
 				</button>
