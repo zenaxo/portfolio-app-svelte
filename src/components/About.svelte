@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from './ui/Button.svelte';
-	import { Linkedin, Mail, Phone } from 'lucide-svelte';
+	import { Linkedin, Mail } from 'lucide-svelte';
 </script>
 
 <div class="pt-24 translate-x-0 pl-5 pr-5 min-h-full">
@@ -26,20 +26,11 @@
 		<Button
 			type="external"
 			className="hover:underline underline-offset-4"
-			href="mailto:sjolander48@live.se"
+			href="mailto:contact@hannessjolander.com"
 			name="Send a mail to me"
 		>
 			<Mail color="var(--secondary)" size={24} />
-			sjolander48@live.se
-		</Button>
-		<Button
-			type="external"
-			className="hover:underline underline-offset-4"
-			href="tel:+46735343819"
-			name="Call me"
-		>
-			<Phone color="var(--secondary)" size={24} />
-			+46 73 534 38 19
+			contact@hannessjolander.com
 		</Button>
 	</div>
 	<figure

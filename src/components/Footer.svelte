@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-	<div class="text-center bg-secondary text-primary text-sm p-4">
+	<div class="text-center text-secondary text-sm p-4">
 		<p>{`© ${year} Copyright: hannessjolander.com`}</p>
 	</div>
 </footer>

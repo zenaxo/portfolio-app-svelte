@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { X } from 'lucide-svelte';
-	import resumeFile from '$lib/resume/hannes_sjolander_cv-min.pdf';
+	import resumeFile from '$lib/resume/hannes_sjolander_cv.pdf';
 	export let isMenuOpen: Boolean;
 	export var toggleMenu: () => void;
 

@@ -2,7 +2,7 @@
 	import Button from './ui/Button.svelte';
 	import { onMount } from 'svelte';
 	import heroImg from '../lib/images/portfolioshotflipped.webp';
-	import resumeFile from '$lib/resume/hannes_sjolander_cv-min.pdf';
+	import resumeFile from '$lib/resume/hannes_sjolander_cv.pdf';
 
 	let text = '';
 	const textToType = 'Hi, this is me!';
