@@ -113,7 +113,7 @@
 		<img
 			src={imgs[currentImgIndex].src}
 			alt={imgs[currentImgIndex].alt}
-			class="object-fill pt-1 max-h-[50vh] mobile:max-w-[150px] zapt-images"
+			class="object-fill pt-1 max-h-[50vh] mobile:max-h-[35vh] zapt-images"
 		/>
 		<button on:click={nextImg} class="p-2" aria-label="Next image">
 			<ArrowRight size={30} />

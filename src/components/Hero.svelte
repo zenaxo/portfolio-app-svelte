@@ -36,8 +36,8 @@
 				{text}
 			</h1>
 			<h2 class="text-2xl mobile:text-xl mb-5">
-				I have a big passion for <code>{'<code>'}</code><br /> and
-				<span class="italic">interaction design</span>
+				I have a big passion for <code class="font-semibold">{'<code>'}</code><br /> and
+				<span class="font-semibold">interaction design</span>
 			</h2>
 			<div class="flex gap-7 mobile:gap-2 mobile:flex-col">
 				<Button type="external" href="/" className="hover:underline underline-offset-8">
