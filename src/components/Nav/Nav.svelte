@@ -36,13 +36,13 @@
 	};
 </script>
 
-<nav class="overflow-hidden bg-primary fixed top-0 z-50 w-screen shadow-md max-w-[100vw]">
-	<div class="flex justify-between items-center w-full pt-3 pb-3 pr-3">
+<nav class="bg-primary fixed top-0 z-50 w-screen shadow-md max-w-[100vw]">
+	<div class="flex justify-between items-center w-full pt-3 pb-3 pr-3 h-[59px]">
 		<div class="ml-5 z-50">
 			<!--Logo-->
 			<a href="/">
 				{#if isDarkModeToggled}
-					<img alt="logo of website" src={darkLogo} class="w-[35px]" width="35" />
+					<img alt="logo of website" src={darkLogo} class="w-[35px] mobile:w-[28px]" width="35" />
 				{:else}
 					<img alt="logo of website" src={lightLogo} class="w-[35px]" width="35" />
 				{/if}
