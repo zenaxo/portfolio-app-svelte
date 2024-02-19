@@ -57,6 +57,7 @@
 					href="/"
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="Home"
+					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 					on:click={toggleMenu}
 				>
 					Home</a
@@ -67,6 +68,7 @@
 					href="/contact"
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="Contact"
+					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 					on:click={toggleMenu}
 				>
 					Contact</a
@@ -76,6 +78,7 @@
 				<button
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="download resume"
+					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 					on:click={downloadResume}
 				>
 					Resume
@@ -86,6 +89,7 @@
 					on:click={toggleMenu}
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover"
 					aria-label="close menu"
+					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 				>
 					<X color="var(--secondary)" />
 				</button>
