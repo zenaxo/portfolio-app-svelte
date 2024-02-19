@@ -42,7 +42,9 @@
 			+46 73 534 38 19
 		</Button>
 	</div>
-	<figure class="blur-px text-accentAlt -skew-x-8 text-l -rotate-12 mt-24 pointer-events-none">
+	<figure
+		class="blur-px text-accentAlt -skew-x-8 text-l -rotate-12 mt-24 mobile:mt-0 mobile:absolute right-0 -translate-y-20 -translate-x-10 pointer-events-none"
+	>
 		<code>
 			<span>{'<div>'}</span>
 			<br />
