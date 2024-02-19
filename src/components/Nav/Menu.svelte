@@ -1,19 +1,33 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { X } from 'lucide-svelte';
+	import resumeFile from '$lib/resume/hannes_sjolander_cv-min.pdf';
 	export let isMenuOpen: Boolean;
 	export var toggleMenu: () => void;
 
-	const links = [
-		{ href: '/', text: 'Home' },
-		{ href: 'contact', text: 'Contact' },
-		{ href: '/resume', text: 'Resume' }
-	];
+	const resumeName = 'hannes_sjolander_cv';
+
 	function handleKeyDown(event: KeyboardEvent) {
 		if (event.key === 'Escape' && isMenuOpen) {
 			toggleMenu();
 		}
 	}
+
+	const downloadResume = () => {
+		// Create a temporary anchor element
+		const anchorElement = document.createElement('a');
+
+		// Set the href and download attributes
+		anchorElement.href = resumeFile;
+		anchorElement.download = `${resumeName}.pdf`;
+
+		// Simulate a click on the anchor element to trigger the download
+		anchorElement.click();
+
+		// Clean up: remove the anchor element from the document
+		anchorElement.remove();
+		toggleMenu();
+	};
 
 	onMount(() => {
 		document.addEventListener('keydown', handleKeyDown);
@@ -38,15 +52,35 @@
 >
 	<div class="bg-primary border-b-4 border-accent">
 		<ul>
-			{#each links as link}
-				<li>
-					<a
-						href={link.href}
-						class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
-						aria-label={`Go to ${link.text}`}>{link.text}</a
-					>
-				</li>
-			{/each}
+			<li>
+				<a
+					href="/"
+					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
+					aria-label="Home"
+					on:click={toggleMenu}
+				>
+					Home</a
+				>
+			</li>
+			<li>
+				<a
+					href="/contact"
+					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
+					aria-label="Contact"
+					on:click={toggleMenu}
+				>
+					Contact</a
+				>
+			</li>
+			<li>
+				<button
+					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
+					aria-label="download resume"
+					on:click={downloadResume}
+				>
+					Resume
+				</button>
+			</li>
 			<li>
 				<button
 					on:click={toggleMenu}

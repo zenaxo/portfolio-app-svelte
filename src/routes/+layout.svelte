@@ -4,6 +4,7 @@
 	import favIconSmall from '$lib/icons/favicon-16x16.png';
 	import manifest from '../site.webmanifest';
 	import maskIcon from '$lib/icons/safari-pinned-tab.svg';
+	import Footer from '../components/Footer.svelte';
 
 	import '../app.css';
 	import Nav from '../components/Nav/Nav.svelte';
@@ -26,7 +27,6 @@
 	<meta property="og:title" content="Hannes Sjölander Portfolio" />
 	<meta property="description" content="Hannes Sjölander Portfolio" />
 	<meta property="locale" content="sv_Se" />
-	<meta property="og:image" content="lib/images/portfolioshotflipped.png" />
 	<meta property="locale:alternate" content="en_US" />
 	<meta property="og:url" content="https://hannessjolander.me" />
 	<meta property="og:type" content="portfolio website" />
@@ -45,3 +45,4 @@
 </svelte:head>
 <Nav />
 <slot />
+<Footer />

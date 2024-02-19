@@ -23,7 +23,7 @@
 		} else {
 			percentageVisible = 0;
 		}
-		if (percentageVisible > 90) {
+		if (percentageVisible > 90 || scrollTop === elementTop) {
 			skewX = 90;
 		} else {
 			if (scrollTop >= elementTop) {

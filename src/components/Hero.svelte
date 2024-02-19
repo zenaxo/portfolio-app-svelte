@@ -2,9 +2,26 @@
 	import Button from './ui/Button.svelte';
 	import { onMount } from 'svelte';
 	import heroImg from '../lib/images/portfolioshotflipped.webp';
+	import resumeFile from '$lib/resume/hannes_sjolander_cv-min.pdf';
 
 	let text = '';
 	const textToType = 'Hi, this is me!';
+	const resumeName = 'hannes_sjolander_cv';
+
+	const downloadResume = () => {
+		// Create a temporary anchor element
+		const anchorElement = document.createElement('a');
+
+		// Set the href and download attributes
+		anchorElement.href = resumeFile;
+		anchorElement.download = `${resumeName}.pdf`;
+
+		// Simulate a click on the anchor element to trigger the download
+		anchorElement.click();
+
+		// Clean up: remove the anchor element from the document
+		anchorElement.remove();
+	};
 
 	onMount(() => {
 		for (let i = 0; i < textToType.length; i++) {
@@ -50,6 +67,7 @@
 					type="button"
 					className="underline-offset-8 flex items-center"
 					name="download resume"
+					onClick={downloadResume}
 				>
 					<i class="fa-solid fa-download fa-xl" color="var(--secondary)"></i>
 					<p>Download Resume</p>
