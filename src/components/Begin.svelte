@@ -45,7 +45,7 @@
 </script>
 
 <div
-	class="w-full max-w-[900px] h-[calc(100svh-58px)] italic flex flex-col text-7xl mobile:text-3xl pt-20 pl-20 pr-20 pb-20 mobile:pr-6 mobile:pl-6 justify-center font-semibold whitespace-nowrap"
+	class="w-full max-w-[900px] mobile:max-w-[440px] h-[calc(100dvh-58px)] italic flex flex-col text-7xl mobile:text-3xl pt-20 pl-20 pr-20 pb-20 mobile:pr-6 mobile:pl-6 justify-center font-semibold whitespace-nowrap"
 	id="aboutContainer"
 >
 	<div class="w-full flex justify-start">

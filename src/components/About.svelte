@@ -3,7 +3,7 @@
 	import { Linkedin, Mail, Phone } from 'lucide-svelte';
 </script>
 
-<div class="pt-24 translate-x-0 pl-5 pr-5 max-h[calc(100svh - 58px)]">
+<div class="pt-24 translate-x-0 pl-5 pr-5 max-h[calc(100dvh-58px)]">
 	<h2 class="text-5xl mobile:text-2xl mb-12 mobile:mb-6 font-bold">More about me</h2>
 	<p class="text-xl mobile:text-base mb-10 max-w-[700px]">
 		I am a passionate interaction designer with a flair for turning ideas into immersive digital
@@ -43,7 +43,7 @@
 		</Button>
 	</div>
 	<figure
-		class="blur-px text-accentAlt -skew-x-8 text-l -rotate-12 mt-24 mobile:mt-0 mobile:absolute right-0 -translate-y-20 -translate-x-10 pointer-events-none"
+		class="blur-px text-accentAlt -skew-x-8 text-l -rotate-12 mt-24 mobile:mt-0 mobile:absolute mobile:right-0 mobile:-translate-y-20 mobile:-translate-x-10 pointer-events-none"
 	>
 		<code>
 			<span>{'<div>'}</span>

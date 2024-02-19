@@ -88,7 +88,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-around w-full max-w-[1200px] h-[calc(100svh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
+	class="flex flex-col items-center justify-around w-full max-w-[1200px] h-[calc(100dvh-58px)] p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
 	id="movieGalleryPosCheck"
 >
 	<div class="flex flex-col items-center">
@@ -112,7 +112,7 @@
 				src={images[currentImgIndex].src}
 				alt={images[currentImgIndex].alt}
 				width="800"
-				class="movie-gallery-images object-contain max-w-[500px] mobile:max-w-[75vw]"
+				class="movie-gallery-images circle object-contain max-w-[500px] mobile:max-w-[75vw]"
 			/>
 		</div>
 		<button on:click={nextImg} class="p-2 mr-2" aria-label="Next image">
