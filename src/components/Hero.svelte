@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from './ui/Button.svelte';
-	import { Linkedin, Download } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import heroImg from '../lib/images/portfolioshotflipped.webp';
 
@@ -40,14 +39,23 @@
 				<span class="font-semibold">interaction design</span>
 			</h2>
 			<div class="flex gap-7 mobile:gap-2 mobile:flex-col">
-				<Button type="external" href="/" className="hover:underline underline-offset-8">
-					<Linkedin fill="var(--secondary)" color="var(--secondary)" />
-					<p>Hannes Sjölander</p>
-				</Button>
-				<Button type="button" className="hover:underline underline-offset-8" name="download resume">
-					<Download color="var(--secondary)" />
-					<p>Download Resume</p>
-				</Button>
+				<div class="hero-button">
+					<Button type="external" href="/" className="underline-offset-8 flex items-center">
+						<i class="fa-brands fa-linkedin-in fa-xl" color="var(--secondary)"></i>
+						<p>Hannes Sjölander</p>
+					</Button>
+				</div>
+
+				<div class="hero-button">
+					<Button
+						type="button"
+						className="underline-offset-8 flex items-center"
+						name="download resume"
+					>
+						<i class="fa-solid fa-download fa-xl" color="var(--secondary)"></i>
+						<p>Download Resume</p>
+					</Button>
+				</div>
 			</div>
 		</div>
 		<div class="w-[30%] mobile:w-[60%] aspect-square rounded-full bg-white overflow-hidden">
@@ -55,3 +63,9 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.hero-button:hover p {
+		text-decoration: underline;
+	}
+</style>

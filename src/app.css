@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Lato';
+    src:
+        url('lib/fonts/lato-regular/lato-regular.woff2?#iefix') format('woff2'),
+        url('lib/fonts/lato-regular/lato-regular.woff') format('woff'),
+        url('lib/fonts/lato-regular/lato-regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+@font-face {
+    font-family: 'Lato';
+    src: 
+        url('lib/fonts/lato-bold/lato-bold.woff2?#iefix') format('woff2'),
+        url('lib/fonts/lato-bold/lato-bold.woff') format('woff'),
+        url('lib/fonts/lato-bold/lato-bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+}
+@font-face {
+    font-family: 'Lato';
+    src: 
+        url('lib/fonts/lato-italic/lato-italic.woff2?#iefic') format('woff2'),
+        url('lib/fonts/lato-italic/lato-italic.woff') format('woff'),
+        url('lib/fonts/lato-italic/lato-italic.ttf') format('truetype');
+        font-weight: normal;
+        font-style: italic;
+}
 html, body {
     overflow-x: hidden;
     font-family: Lato;

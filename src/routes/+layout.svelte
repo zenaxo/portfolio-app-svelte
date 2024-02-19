@@ -17,7 +17,6 @@
 	<link rel="mask-icon" href={maskIcon} color="#5bbad5" />
 	<meta name="msapplication-TileColor" content="#2d89ef" />
 	<meta name="theme-color" content="#ffffff" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
 	<link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
