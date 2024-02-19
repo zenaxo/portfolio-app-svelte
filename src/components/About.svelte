@@ -9,9 +9,10 @@
 		I am a passionate interaction designer with a flair for turning ideas into immersive digital
 		experiences. As a civil engineering student exploring the vibrant world of interaction design, I
 		thrive on crafting intuitive solutions that bridge the gap between form and function.
-		<br /><br /><span class="text-accent font-semibold italic"
-			>Let's build the future of user-centric design together!</span
-		>
+		<br /><br />
+		<span class="text-accent font-semibold italic">
+			Let's build the future of user-centric design together!
+		</span>
 	</p>
 	<div class="flex gap-5 text-nowrap flex-wrap text-xl mobile:text-base">
 		<Button

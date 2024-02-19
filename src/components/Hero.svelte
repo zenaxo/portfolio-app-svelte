@@ -57,8 +57,8 @@
 					name="LinkedIn"
 					className="underline-offset-8 flex items-center"
 				>
-					<i class="fa-brands fa-linkedin-in fa-xl" color="var(--secondary)"></i>
-					<p>Hannes Sjölander</p>
+					<i class="fa-brands fa-linkedin-in fa-xl text-secondary"></i>
+					Hannes Sjölander
 				</Button>
 			</div>
 
@@ -69,8 +69,8 @@
 					name="download resume"
 					onClick={downloadResume}
 				>
-					<i class="fa-solid fa-download fa-xl" color="var(--secondary)"></i>
-					<p>Download Resume</p>
+					<i class="fa-solid fa-download fa-xl text-secondary"></i>
+					Download Resume
 				</Button>
 			</div>
 		</div>
@@ -81,7 +81,7 @@
 </div>
 
 <style>
-	.hero-button:hover p {
+	.hero-button:hover {
 		text-decoration: underline;
 	}
 </style>

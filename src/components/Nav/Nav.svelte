@@ -55,7 +55,7 @@
 				class="bg-secondary h-7 w-12 rounded-full flex items-center relative"
 				aria-label="toggle darkmode"
 			>
-				<div
+				<span
 					class={`circle h-5 w-5 flex justify-center items-center bg-primary rounded-full ml-1 mr-1 transition-transform duration-100 ${isDarkModeToggled ? 'translate-x-0' : 'translate-x-full'}`}
 				>
 					{#if !isDarkModeToggled}
@@ -70,23 +70,22 @@
 						<!--Moon-->
 						<Moon color="var(--secondary)" size={18} />
 					{/if}
-				</div>
+				</span>
 			</button>
 			<!--Menu button-->
 			<button on:click={toggleMenu} aria-label="Toggle menu" type="button" class="menu-button">
-				<div
+				<span
 					class={`menu gap-2 ${isMenuOpen ? 'open' : ''} relative flex flex-col justify-around w-[2rem] h-[2rem] cursor-pointer`}
 				>
-					<div
+					<span
 						class="h-[0.25rem] bg-secondary rounded-[2px] w-[40%] bar transition-all duration-500 ease"
-					></div>
-					<div
-						class="h-[0.25rem] bg-secondary rounded-[2px] bar transition-all duration-500 ease"
-					></div>
-					<div
+					></span>
+					<span class="h-[0.25rem] bg-secondary rounded-[2px] bar transition-all duration-500 ease"
+					></span>
+					<span
 						class="h-[0.25rem] bg-secondary rounded-[2px] w-[60%] bar transition-all duration-500 ease translate-x-[60%]"
-					></div>
-				</div>
+					></span>
+				</span>
 			</button>
 		</div>
 	</div>
