@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { ArrowBigDown } from 'lucide-svelte';
+	import { onMount, onDestroy } from 'svelte';
 	let nextSectionTitle = '';
 	let previousSectionTitle = '';
 
@@ -74,17 +73,17 @@
 		return null;
 	};
 
-	onMount(() => {
-		const nextTitle = findNextSectionName();
-
+	const setNavButtons = () => {
+		const nextSection = findNextSectionName();
+		const previousSection = findPreviousSectionName();
 		const scrollDownElement = document.getElementById('scrollDown') as HTMLElement;
 		const scrollUpElement = document.getElementById('scrollUp') as HTMLElement;
 
 		const scrollDownBtn = document.getElementById('scrollDownBtn') as HTMLButtonElement;
 		const scrollUpBtn = document.getElementById('scrollUpBtn') as HTMLButtonElement;
 
-		if (nextTitle) {
-			nextSectionTitle = nextTitle;
+		if (nextSection) {
+			nextSectionTitle = nextSection;
 			scrollDownElement.style.opacity = '100';
 			scrollDownBtn.disabled = false;
 			scrollDownBtn.style.cursor = 'pointer';
@@ -95,52 +94,27 @@
 			scrollDownBtn.style.cursor = 'default';
 		}
 
-		const prevTitle = findPreviousSectionName();
-
-		if (prevTitle) {
-			previousSectionTitle = prevTitle;
+		if (previousSection) {
+			previousSectionTitle = previousSection;
 			scrollUpElement.style.opacity = '100';
 			scrollUpBtn.disabled = false;
 			scrollUpBtn.style.cursor = 'pointer';
 		} else {
+			previousSectionTitle = '';
 			scrollUpElement.style.opacity = '0';
 			scrollDownBtn.disabled = false;
 			scrollUpBtn.style.cursor = 'default';
 		}
+	};
 
-		window.addEventListener('scroll', () => {
-			const nextSection = findNextSectionName();
-			const previousSection = findPreviousSectionName();
-			const scrollDownElement = document.getElementById('scrollDown') as HTMLElement;
-			const scrollUpElement = document.getElementById('scrollUp') as HTMLElement;
-
-			const scrollDownBtn = document.getElementById('scrollDownBtn') as HTMLButtonElement;
-			const scrollUpBtn = document.getElementById('scrollUpBtn') as HTMLButtonElement;
-
-			if (nextSection) {
-				nextSectionTitle = nextSection;
-				scrollDownElement.style.opacity = '100';
-				scrollDownBtn.disabled = false;
-				scrollDownBtn.style.cursor = 'pointer';
-			} else {
-				nextSectionTitle = '';
-				scrollDownElement.style.opacity = '0';
-				scrollDownBtn.disabled = true;
-				scrollDownBtn.style.cursor = 'default';
-			}
-
-			if (previousSection) {
-				previousSectionTitle = previousSection;
-				scrollUpElement.style.opacity = '100';
-				scrollUpBtn.disabled = false;
-				scrollUpBtn.style.cursor = 'pointer';
-			} else {
-				previousSectionTitle = '';
-				scrollUpElement.style.opacity = '0';
-				scrollDownBtn.disabled = false;
-				scrollUpBtn.style.cursor = 'default';
-			}
-		});
+	onMount(() => {
+		setNavButtons();
+		window.addEventListener('scroll', setNavButtons);
+	});
+	onDestroy(() => {
+		if (typeof window !== 'undefined') {
+			window.removeEventListener('scroll', setNavButtons);
+		}
 	});
 </script>
 
@@ -159,7 +133,14 @@
 		id="scrollDownBtn"
 		aria-label="Scroll down"
 	>
-		<ArrowBigDown fill="var(--accent)" color="var(--accentAlt)" size="50" />
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="2.75rem"
+			height="2.75rem"
+			viewBox="0 0 24 24"
+			fill="var(--accent)"
+			class="lucide lucide-arrow-big-down"><path d="M15 6v6h4l-7 7-7-7h4V6h6z" /></svg
+		>
 	</button>
 </div>
 <div
@@ -178,7 +159,14 @@
 		id="scrollUpBtn"
 		aria-label="Scroll up"
 	>
-		<ArrowBigDown fill="var(--accent)" color="var(--accentAlt)" size="50" class="rotate-180" />
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="2.75rem"
+			height="2.75rem"
+			viewBox="0 0 24 24"
+			fill="var(--accent)"
+			class="lucide lucide-arrow-big-up"><path d="M9 18v-6H5l7-7 7 7h-4v6H9z" /></svg
+		>
 	</button>
 </div>
 

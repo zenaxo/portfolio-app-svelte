@@ -47,32 +47,55 @@
 		</h1>
 		<h2 class="text-2xl mobile:text-xl mb-5">
 			I have a big passion for <code class="font-semibold">{'<code>'}</code><br /> and
-			<span class="font-semibold">interaction design</span>
+			<span class="font-semibold">UX design</span>
 		</h2>
 		<div class="flex gap-7 mobile:gap-2 mobile:flex-col">
-			<div class="hero-button">
-				<Button
-					type="external"
-					href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
-					name="LinkedIn"
-					className="underline-offset-8 flex items-center"
+			<Button
+				type="external"
+				href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
+				name="Linked In"
+				className="underline-offset-8 flex items-center hero-button"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="1.5rem"
+					width="1.5rem"
+					viewBox="0 0 24 24"
+					fill="var(--secondary)"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="lucide lucide-linkedin"
+					><path
+						d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+					/><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg
 				>
-					<i class="fa-brands fa-linkedin-in fa-xl text-secondary"></i>
-					Hannes Sjölander
-				</Button>
-			</div>
-
-			<div class="hero-button">
-				<Button
-					type="button"
-					className="underline-offset-8 flex items-center"
-					name="download resume"
-					onClick={downloadResume}
+				<span>Hannes Sjölander</span>
+			</Button>
+			<Button
+				type="button"
+				className="underline-offset-8 flex items-center hero-button"
+				name="download resume"
+				onClick={downloadResume}
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="1.5rem"
+					width="1.5rem"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="3"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="lucide lucide-download"
+					><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline
+						points="7 10 12 15 17 10"
+					/><line x1="12" x2="12" y1="15" y2="3" /></svg
 				>
-					<i class="fa-solid fa-download fa-xl text-secondary"></i>
-					Download Resume
-				</Button>
-			</div>
+				<span>Download Resume</span>
+			</Button>
 		</div>
 	</div>
 	<div class="w-[30%] mobile:w-[60%] aspect-square rounded-full bg-white overflow-hidden">
@@ -81,7 +104,7 @@
 </div>
 
 <style>
-	.hero-button:hover {
+	:global(.hero-button:hover span) {
 		text-decoration: underline;
 	}
 </style>

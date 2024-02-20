@@ -5,8 +5,7 @@
 	import NavigationButtons from '../components/NavigationButtons.svelte';
 	import TechStack from '../components/TechStack.svelte';
 	import Section from '../components/ui/Section.svelte';
-	import MovieGallery from '../components/MovieGallery.svelte';
-	import Zapt from '../components/Zapt.svelte';
+	import Projects from '../components/Projects.svelte';
 </script>
 
 <svelte:head>
@@ -22,12 +21,7 @@
 	<Section sectionName="Skills">
 		<TechStack />
 	</Section>
-	<Section sectionName="Movie Gallery">
-		<MovieGallery />
-	</Section>
-	<Section sectionName="Zapt">
-		<Zapt />
-	</Section>
+	<Projects />
 	<Section sectionName="About me">
 		<About />
 	</Section>

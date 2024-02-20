@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let sectionName: string = '';
+	export let sectionName: string;
 	export let isAccent: boolean = false;
 </script>
 

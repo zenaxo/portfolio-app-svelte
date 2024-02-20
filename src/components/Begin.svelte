@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	let percentageVisible = 0;
 	let xTransform = 100;
@@ -32,15 +32,18 @@
 		}
 	}
 
-	// Function to update the percentage value on scroll
 	function updateScrollPercentage() {
 		calculateScrollPercentage();
 	}
 
-	// Attach the scroll event listener to update the percentage value on scroll
 	onMount(() => {
 		window.addEventListener('scroll', updateScrollPercentage);
 		updateScrollPercentage();
+	});
+	onDestroy(() => {
+		if (typeof window !== 'undefined') {
+			window.removeEventListener('scroll', updateScrollPercentage);
+		}
 	});
 </script>
 
