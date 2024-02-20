@@ -41,14 +41,13 @@
 <div
 	class={`fixed w-full flex flex-col ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 cubic-bezier(0,1.5,1,1.5) z-50`}
 >
-	<div class="bg-primary border-b-4 border-accent">
+	<div class="bg-primary border-b-4 border-accent" aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}>
 		<ul>
 			<li>
 				<a
 					href="/"
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="Home"
-					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 					on:click={toggleMenu}
 				>
 					Home</a
@@ -59,7 +58,6 @@
 					href="/contact"
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="Contact"
-					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 					on:click={toggleMenu}
 				>
 					Contact</a
@@ -69,7 +67,6 @@
 				<button
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="download resume"
-					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 					on:click={downloadResume}
 				>
 					Resume
@@ -80,7 +77,6 @@
 					on:click={toggleMenu}
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover"
 					aria-label="close menu"
-					aria-hidden={`${isMenuOpen ? 'false' : 'true'}`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
