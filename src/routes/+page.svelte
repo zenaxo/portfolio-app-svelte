@@ -11,7 +11,6 @@
 <svelte:head>
 	<title>Welcome - Hannes Sjölander</title>
 	<link rel="canonical" href="https://hannessjolander.com" />
-	<meta http-equiv="Content-Language" content="en-US" />
 	<meta property="og:title" content="Welcome - Hannes Sjölander" />
 	<meta name="description" content="Welcome to my portfolio website! Explore my work and skills." />
 	<meta
