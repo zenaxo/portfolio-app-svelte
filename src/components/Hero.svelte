@@ -9,17 +9,12 @@
 	const resumeName = 'hannes_sjolander_cv';
 
 	const downloadResume = () => {
-		// Create a temporary anchor element
-		const anchorElement = document.createElement('a');
+		const anchorElement = document.createElement('a') as HTMLAnchorElement;
 
-		// Set the href and download attributes
 		anchorElement.href = resumeFile;
 		anchorElement.download = `${resumeName}.pdf`;
 
-		// Simulate a click on the anchor element to trigger the download
 		anchorElement.click();
-
-		// Clean up: remove the anchor element from the document
 		anchorElement.remove();
 	};
 

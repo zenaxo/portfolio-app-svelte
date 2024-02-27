@@ -1,5 +1,12 @@
 <script lang="ts">
 	import Button from './ui/Button.svelte';
+
+	const handleOpenMail = () => {
+		const link = document.createElement('a') as HTMLAnchorElement;
+		link.href = 'mailto:contact@hannessjolander.com';
+		link.click();
+		link.remove();
+	};
 </script>
 
 <div class="pt-24 translate-x-0 pl-5 pr-5 min-h-full">
@@ -38,10 +45,11 @@
 			Hannes Sjölander
 		</Button>
 		<Button
-			type="external"
-			className="hover:underline underline-offset-4 flex items-center"
-			href="mailto:contact@hannessjolander.com"
-			name="Send a mail to me"
+			type="button"
+			className="hover:underline underline-offset-4 flex items-center email-button"
+			onClick={handleOpenMail}
+			name="Send me an e-mail"
+			title="Send me an e-mail"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

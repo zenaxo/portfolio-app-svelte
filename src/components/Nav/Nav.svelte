@@ -53,6 +53,7 @@
 				on:click={toggleDarkMode}
 				class="bg-secondary h-7 w-12 rounded-full flex items-center relative"
 				aria-label="toggle darkmode"
+				title={`${isDarkModeToggled ? 'Enable light mode' : 'Enable dark mode'}`}
 			>
 				<span
 					class={`circle h-5 w-5 flex justify-center items-center bg-primary rounded-full ml-1 mr-1 transition-transform duration-100 ${isDarkModeToggled ? 'translate-x-0' : 'translate-x-full'}`}

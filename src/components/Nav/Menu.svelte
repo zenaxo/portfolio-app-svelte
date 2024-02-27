@@ -68,6 +68,7 @@
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover text-secondary"
 					aria-label="download resume"
 					on:click={downloadResume}
+					title="Download my resume"
 				>
 					Resume
 				</button>
@@ -77,6 +78,7 @@
 					on:click={toggleMenu}
 					class="p-4 flex w-screen items-center justify-center hover:bg-hover"
 					aria-label="close menu"
+					title="Close menu"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
