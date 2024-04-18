@@ -12,12 +12,11 @@
 <div class="pt-24 translate-x-0 pl-5 pr-5 min-h-full">
 	<h2 class="text-5xl mobile:text-2xl mb-12 mobile:mb-6 font-bold">More about me</h2>
 	<p class="text-xl mobile:text-base mb-10 max-w-[700px] mobile:mb-6">
-		I am a passionate interaction designer with a flair for turning ideas into immersive digital
-		experiences. As a civil engineering student exploring the vibrant world of interaction design, I
-		thrive on crafting intuitive solutions that bridge the gap between form and function.
+		Throughout my academic career, I've collaborated on projects ranging from mobile app developments to comprehensive digital ecosystems, always with a focus on user-centric design. I'm excited to bring my blend of skills and vision to a team that champions pioneering solutions and values user experience as much as I do.
+		<br><br>I am set to graduate my degree in Master of Science in Enginnering with a specialization in Interaction Technology and Design in 2026.
 		<br /><br />
 		<span class="text-accent font-semibold italic">
-			Let's build the future of user-centric design together!
+			Let's connect and explore how we can create the future of interaction technology together!
 		</span>
 	</p>
 	<div class="flex gap-5 text-nowrap flex-wrap text-xl mobile:text-base">

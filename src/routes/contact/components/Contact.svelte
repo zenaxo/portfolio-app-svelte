@@ -14,13 +14,13 @@
 </svelte:head>
 <div class="translate-x-0 p-24 mobile:p-0 min-h-[calc(100vh-59px)]">
 	<h2 class="text-5xl mobile:text-2xl font-bold mb-6 mobile:mb-2">Contact me</h2>
-	<p class="text-xl mobile:text-base mb-10 max-w-[700px]">
-		I am a passionate interaction designer with a flair for turning ideas into immersive digital
-		experiences. As a civil engineering student exploring the vibrant world of interaction design, I
-		thrive on crafting intuitive solutions that bridge the gap between form and function.
-		<br /><br /><span class="text-accent font-semibold italic"
-			>Let's build the future of user-centric design together!</span
-		>
+	<p class="text-xl mobile:text-base mb-10 max-w-[700px] mobile:mb-6">
+		Throughout my academic career, I've collaborated on projects ranging from mobile app developments to comprehensive digital ecosystems, always with a focus on user-centric design. I'm excited to bring my blend of skills and vision to a team that champions pioneering solutions and values user experience as much as I do.
+		<br><br>I am set to graduate my degree in Master of Science in Enginnering with a specialization in Interaction Technology and Design in 2026.
+		<br /><br />
+		<span class="text-accent font-semibold italic">
+			Let's connect and explore how we can create the future of interaction technology together!
+		</span>
 	</p>
 	<div class="flex gap-5 text-nowrap flex-wrap text-xl mobile:text-base">
 		<Button
