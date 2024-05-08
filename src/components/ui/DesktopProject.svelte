@@ -48,11 +48,11 @@
 			>
 		</button>
 		{/if}
-		<div class="flex-1 aspect-video max-w-[600px] object-contain">
+		<div class="flex-1 aspect-video max-w-[600px]">
 			<img
 				src={props.images[currentImgIndex].src}
 				alt={props.images[currentImgIndex].alt}
-				class={`${props.imagesClass}`}
+				class={`${props.imagesClass} object-contain mobile:max-h-[155px]`}
 				width="600"
 				height="600"
 			/>
