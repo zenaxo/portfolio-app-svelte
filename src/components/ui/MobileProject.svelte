@@ -51,7 +51,7 @@
 			<img 
 				src={props.images[currentImgIndex].src}
 				alt={props.images[currentImgIndex].alt}
-				class={`max-h-[450px] mobile:max-h-[350px] ${props.imagesClass} object-contain`}
+				class={`max-h-[450px] mobile:max-h-[250px] ${props.imagesClass} object-contain`}
 				height="600"
 				>
 		</div>
