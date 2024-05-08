@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 	import { onMount, beforeUpdate } from 'svelte';
+	import type { ProjectProps } from '$lib/types/types.js';
 	import DesktopProject from './ui/DesktopProject.svelte';
 	import MobileProject from './ui/MobileProject.svelte';
 	import Section from './ui/Section.svelte';
@@ -11,6 +12,7 @@
 	import zaptkarta from '$lib/images/karta.webp';
 	import zaptkalender from '$lib/images/kalender.webp';
 	import zaptfilter from '$lib/images/filter.webp';
+	import portfolioImage from '$lib/images/portfolio.webp';
 
 	let imagesLoaded = false;
 
@@ -56,47 +58,53 @@
 		window.removeEventListener('scroll', preloadImages);
 	});
 
-	const movieGalleryImages = [
+	const movieGalleryProps: ProjectProps = {
+		title: 'Movie Gallery',
+		images: [
 		{ src: mgstart, alt: 'Movie Gallery index view' },
 		{ src: mgdetails, alt: 'Movie Gallery detail view' },
 		{ src: mglogin, alt: 'Movie Gallery log in view' },
 		{ src: mgedit, alt: 'Movie gallery edit movie view' }
-	];
-
-	const movieGalleryTitle = 'Movie Gallery';
-	const movieGalleryDesc =
-		'A platform to discover movies was implemented with ASP.NET Core MVC with full CRUD functionallity.';
-	const movieGalleryTags = ['Database, ', 'Front-end, ', 'Design, ', 'Group Project'];
-	const movieGalleryImgClass = 'movie-gallery-images';
-
-	const zaptImages = [
+		],
+		description: 'A platform to discover movies was implemented with ASP.NET Core MVC with full CRUD functionallity.',
+		tags: ['Database, ', 'Front-end, ', 'Design, ', 'Collaboration'],
+		imagesClass: 'movie-gallery-images',
+		gitHubUrl: 'https://github.com/zenaxo/MovieGalleryApp',
+		hasCaseStudy: true,
+	}
+	const zaptProps: ProjectProps = {
+		title: 'Zapt',
+		images: [
 		{ src: zaptstart, alt: 'Zapt start view' },
 		{ src: zaptkarta, alt: 'Zapt map view' },
 		{ src: zaptkalender, alt: 'Zapt calender view' },
 		{ src: zaptfilter, alt: 'Zapt filter view' }
-	];
-	const zaptTitle = 'Zapt';
-	const zaptDesc =
-		'A concept for an all-in-one application for owners of electric vehicles was made with Figma.';
-	const zaptTags = ['Design, ', 'UI/UX, ', 'Storytelling, ', 'Group Project'];
-	const zaptImgClass = 'zapt-images';
+		],
+		description: 'A concept for an all-in-one application for owners of electric vehicles was made with Figma.',
+		tags: ['Design, ', 'UI/UX, ', 'Storytelling, ', 'Collaboration'],
+		imagesClass: 'zapt-images',
+		hasCaseStudy: false,
+	}
+
+	const portfolioProps: ProjectProps = {
+		title: 'Portfolio',
+		images: [
+			{ src: portfolioImage, alt: 'Landing page of my portfolio'}
+		],
+		description: 'My personal plaform for sharing my projects and skills. Made in SvelteKit with Tailwind CSS.',
+		tags: ['Front-end, ', 'Design, ', 'UX'],
+		imagesClass: 'portfolio-images',
+		gitHubUrl: 'https://github.com/zenaxo/portfolio-app-svelte',
+		hasCaseStudy: true,
+	}
 </script>
 
 <Section sectionName="Movie Gallery">
-	<DesktopProject
-		images={movieGalleryImages}
-		title={movieGalleryTitle}
-		description={movieGalleryDesc}
-		tags={movieGalleryTags}
-		imagesClass={movieGalleryImgClass}
-	/>
+	<DesktopProject props={movieGalleryProps} />
 </Section>
 <Section sectionName="Zapt">
-	<MobileProject
-		images={zaptImages}
-		title={zaptTitle}
-		description={zaptDesc}
-		tags={zaptTags}
-		imagesClass={zaptImgClass}
-	/>
+	<MobileProject props={zaptProps} />
+</Section>
+<Section sectionName="Portfolio">
+	<DesktopProject props={portfolioProps} />
 </Section>

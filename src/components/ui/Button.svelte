@@ -6,7 +6,7 @@
 	export let onClick: () => void = () => {};
 	export let title: string = '';
 
-	const styleProp = `flex gap-2 w-max pt-1 pb-1 pl-1 pr-1 z-30 ${className}`;
+	const styleProp = `flex gap-2 w-max z-30 ${className}`;
 </script>
 
 {#if type == 'external'}

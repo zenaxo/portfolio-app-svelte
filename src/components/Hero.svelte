@@ -40,8 +40,8 @@
 		>
 			{text}
 		</h1>
-		<h2 class="text-2xl mobile:text-xl mb-5">
-			I have a big passion for <code class="font-semibold">{'<code>'}</code><br /> and
+		<h2 class="text-2xl mobile:text-xl mb-5 leading-10">
+			I have a big passion for <code class="font-bold">{'<code>'}</code><br /> and
 			<span class="font-semibold">UX design</span>
 		</h2>
 		<div class="flex gap-7 mobile:gap-2 mobile:flex-col">
@@ -49,7 +49,7 @@
 				type="external"
 				href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
 				name="Linked In"
-				className="underline-offset-8 flex items-center hero-button"
+				className="underline-offset-8 flex items-center hero-button group"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@
 					stroke-width="2"
 					stroke-linecap="round"
 					stroke-linejoin="round"
-					class="lucide lucide-linkedin"
+					class="lucide lucide-linkedin group-hover:rotate-[360deg] transition-all duration-200"
 					><path
 						d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
 					/><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg
@@ -70,7 +70,7 @@
 			</Button>
 			<Button
 				type="button"
-				className="underline-offset-8 flex items-center hero-button"
+				className="underline-offset-8 flex items-center hero-button group"
 				name="download resume"
 				onClick={downloadResume}
 			>
@@ -84,7 +84,7 @@
 					stroke-width="3"
 					stroke-linecap="round"
 					stroke-linejoin="round"
-					class="lucide lucide-download"
+					class="lucide lucide-download group-hover:-translate-y-1 transition-all duration-200"
 					><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline
 						points="7 10 12 15 17 10"
 					/><line x1="12" x2="12" y1="15" y2="3" /></svg
@@ -97,9 +97,3 @@
 		<img src={heroImg} alt="me" class="object-contain aspect-square pt-8" width="900" />
 	</div>
 </div>
-
-<style>
-	:global(.hero-button:hover span) {
-		text-decoration: underline;
-	}
-</style>

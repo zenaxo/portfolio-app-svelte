@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import resumeFile from '$lib/resume/hannes_sjolander_cv.pdf';
+	import { goto } from '$app/navigation';
 	export let isMenuOpen: Boolean;
 	export var toggleMenu: () => void;
 
@@ -28,6 +29,7 @@
 			document.removeEventListener('keydown', handleKeyDown);
 		};
 	});
+
 </script>
 
 {#if isMenuOpen}

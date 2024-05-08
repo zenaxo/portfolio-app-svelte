@@ -22,7 +22,7 @@
 	<div class="flex gap-5 text-nowrap flex-wrap text-xl mobile:text-base">
 		<Button
 			type="external"
-			className="hover:underline underline-offset-4 flex items-center"
+			className="hover:underline underline-offset-4 flex items-center group"
 			href="https://www.linkedin.com/in/hannes-sj%C3%B6lander-6b45561a6/"
 			name="my LinkedIn"
 		>
@@ -36,7 +36,7 @@
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="lucide lucide-linkedin"
+				class="lucide lucide-linkedin group-hover:rotate-[360deg] transition-transform duration-200"
 				><path
 					d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
 				/><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg
@@ -45,7 +45,7 @@
 		</Button>
 		<Button
 			type="button"
-			className="hover:underline underline-offset-4 flex items-center email-button"
+			className="hover:underline underline-offset-4 flex items-center email-button group"
 			onClick={handleOpenMail}
 			name="Send me an e-mail"
 			title="Send me an e-mail"
@@ -60,7 +60,7 @@
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="lucide lucide-mail"
+				class="lucide lucide-mail group-hover:-translate-y-1 transition-transform duration-200"
 				><rect width="20" height="16" x="2" y="4" rx="2" /><path
 					d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
 				/></svg

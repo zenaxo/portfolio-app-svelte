@@ -3,31 +3,14 @@
 	import lightLogo from '../../lib/images/web-icon-prefersLight.svg';
 	import darkLogo from '../../lib/images/web-icon-prefersDark.svg';
 	import Menu from './Menu.svelte';
+	import { isDarkModeToggled } from '$lib/stores/stores.js';
 
-	let isDarkModeToggled = true;
+
 	let isMenuOpen = false;
 
-	const toggleDarkMode = () => {
-		isDarkModeToggled = !isDarkModeToggled;
-		if (isDarkModeToggled) {
-			document.body.classList.add('dark');
-		} else {
-			document.body.classList.remove('dark');
-		}
-		localStorage.setItem('isDarkModeToggled', JSON.stringify(isDarkModeToggled));
-	};
 
 	onMount(() => {
-		const storedDarkMode = localStorage.getItem('isDarkModeToggled');
-		if (storedDarkMode) {
-			isDarkModeToggled = JSON.parse(storedDarkMode);
-			if (isDarkModeToggled) {
-				document.body.classList.add('dark');
-			}
-		} else {
-			localStorage.setItem('isDarkModeToggled', JSON.stringify(true));
-			document.body.classList.add('dark');
-		}
+		isDarkModeToggled.initialize();
 	});
 
 	const toggleMenu = () => {
@@ -40,7 +23,7 @@
 		<div class="ml-5 z-50">
 			<!--Logo-->
 			<a href="/">
-				{#if isDarkModeToggled}
+				{#if $isDarkModeToggled}
 					<img alt="logo of website" src={darkLogo} class="w-[35px]" width="35" />
 				{:else}
 					<img alt="logo of website" src={lightLogo} class="w-[35px]" width="35" />
@@ -50,15 +33,15 @@
 		<div class="flex mr-5 items-center gap-10 z-50">
 			<!--Dark mode toggle-->
 			<button
-				on:click={toggleDarkMode}
-				class="bg-secondary h-7 w-12 rounded-full flex items-center relative"
+				on:click={() => isDarkModeToggled.toggle()}
+				class="bg-secondary h-7 w-12 rounded-full flex items-center relative group"
 				aria-label="toggle darkmode"
-				title={`${isDarkModeToggled ? 'Enable light mode' : 'Enable dark mode'}`}
+				title={`${$isDarkModeToggled ? 'Enable light mode' : 'Enable dark mode'}`}
 			>
 				<span
-					class={`circle h-5 w-5 flex justify-center items-center bg-primary rounded-full ml-1 mr-1 transition-transform duration-100 ${isDarkModeToggled ? 'translate-x-0' : 'translate-x-full'}`}
+					class={`circle h-5 w-5 flex justify-center items-center bg-primary rounded-full ml-1 mr-1 transition-transform duration-250 ${$isDarkModeToggled ? 'translate-x-0 normal:group-hover:translate-x-1 normal:group-hover:rotate-[360deg]' : 'translate-x-full normal:group-hover:translate-x-4 normal:group-hover:rotate-[-360deg]'}`}
 				>
-					{#if !isDarkModeToggled}
+					{#if !$isDarkModeToggled}
 						<!--Sun-->
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -112,9 +95,9 @@
 
 <style>
 	.menu {
-		transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+		transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 	}
-	@media screen and (min-width: 650px) {
+	@media(hover) {
 		.menu-button:hover .menu:not(.open) {
 			transform: rotate(45deg);
 		}

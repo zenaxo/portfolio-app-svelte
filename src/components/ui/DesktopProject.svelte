@@ -1,78 +1,39 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import Button from './Button.svelte';
+	import { type ProjectProps } from '$lib/types/types.js';
 
-	export var images: { src: string; alt: string }[];
-	export var title: string;
-	export var description: string;
-	export var tags: string[];
-	export var imagesClass: string;
+	export var props: ProjectProps
 
 	let currentImgIndex = 0;
 
-	let touchStartX = 0;
-	let touchEndX = 0;
-
 	const prevImg = () => {
-		currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
+		currentImgIndex = (currentImgIndex - 1 + props.images.length) % props.images.length;
 	};
 
 	const nextImg = () => {
-		currentImgIndex = (currentImgIndex + 1) % images.length;
+		currentImgIndex = (currentImgIndex + 1) % props.images.length;
 	};
-	const goToImg = (i: number) => {
-		currentImgIndex = i;
-	};
-
-	const handleTouchStart = (event: TouchEvent) => {
-		touchStartX = event.touches[0].clientX;
-	};
-
-	const handleTouchMove = (event: TouchEvent) => {
-		touchEndX = event.touches[0].clientX;
-	};
-
-	const handleTouchEnd = () => {
-		if (touchEndX < touchStartX) {
-			nextImg();
-		} else if (touchEndX > touchStartX) {
-			prevImg();
-		}
-
-		touchStartX = 0;
-		touchEndX = 0;
-	};
-	onMount(() => {
-		const imgElement = document.querySelector(`.${imagesClass}`) as HTMLElement;
-		imgElement.addEventListener('touchstart', handleTouchStart, { passive: true });
-		imgElement.addEventListener('touchmove', handleTouchMove, { passive: true });
-		imgElement.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-		return () => {
-			imgElement.removeEventListener('touchstart', handleTouchStart);
-			imgElement.removeEventListener('touchmove', handleTouchMove);
-			imgElement.removeEventListener('touchend', handleTouchEnd);
-		};
-	});
 </script>
 
 <div
-	class="flex flex-col items-center justify-around w-full max-w-[1200px] min-h-full p-20 mobile:p-10 mobile:pt-24 mobile:pb-24 pb-24 pt-24"
+	class="grid overflow-hidden my-20 h-full mobile:my-24 w-full gap-8 max-w-[900px]"
 >
-	<div class="flex flex-col items-center">
+	<div class="flex flex-col items-center justify-center mx-10">
 		<h2 class="text-5xl text-center uppercase font-bold whitespace-nowrap mobile:text-3xl">
-			{title}
+			{props.title}
 		</h2>
 		<p class="text-xl text-center italic mobile:text-sm text-accent font-semibold">
-			{#each tags as tag}
+			{#each props.tags as tag}
 				{tag}
 			{/each}
 		</p>
-		<p class="text-base text-center mobile:text-sm text-secondary max-w-[420px] mt-2 mb-4">
-			{description}
+		<p class="text-base text-center mobile:text-sm text-secondary max-w-[380px] mt-2">
+			{props.description}
 		</p>
 	</div>
-	<div class="flex items-center justify-around w-full relative max-w-[800px]">
-		<button on:click={prevImg} class="p-2 ml-2" aria-label="Previous image">
+	<div class="flex items-center justify-around gap-4 px-4">
+		{#if props.images.length > 1}
+		<button on:click={prevImg} class="p-2 ml-2 flex items-center justify-center relative" aria-label="Previous image">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="2rem"
@@ -83,18 +44,21 @@
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg
+				class="lucide lucide-arrow-left absolute hover:w-12 hover:h-12"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg
 			>
 		</button>
-		<div>
+		{/if}
+		<div class="flex-1 aspect-video max-w-[600px] object-contain">
 			<img
-				src={images[currentImgIndex].src}
-				alt={images[currentImgIndex].alt}
-				width="800"
-				class={`circle object-contain max-w-[500px] mobile:max-w-[75vw] ${imagesClass}`}
+				src={props.images[currentImgIndex].src}
+				alt={props.images[currentImgIndex].alt}
+				class={`${props.imagesClass}`}
+				width="600"
+				height="600"
 			/>
 		</div>
-		<button on:click={nextImg} class="p-2 mr-2" aria-label="Next image">
+		{#if props.images.length > 1}
+		<button on:click={nextImg} class="p-2 mr-2 flex items-center justify-center" aria-label="Next image">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="2rem"
@@ -105,23 +69,26 @@
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="lucide lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
+				class="lucide lucide-arrow-right absolute hover:w-12 hover:h-12"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
 			>
 		</button>
+		{/if}
 	</div>
-	<div class="flex gap-4 items-center">
-		{#each { length: images.length } as _, i}
-			<button
-				class={`h-5 mobile:h-4 aspect-square mt-4 shadow-lg circle rounded-full border-secondary border-2 ${i === currentImgIndex ? 'bg-secondary' : 'hover:bg-accentAlt'}`}
-				on:click={() => goToImg(i)}
-				aria-label="Choose image"
-			></button>
-		{/each}
+	<div class="flex flex-1 gap-4 items-center justify-center">
+		{#if props.hasCaseStudy}
+		<Button 
+			type="internal"
+			href={`projects/${props.title.replace(/\s/g, "").toLowerCase()}`}
+			className="bg-accent border-2 border-accentHover px-4 py-2 mobile:text-sm rounded hover:bg-accentHover transition-colors duration-250 shadow-sm text-white"
+		>
+			Read Case Study
+		</Button>
+		{/if}
+		{#if props.gitHubUrl !== undefined}
+		<Button type="external" href={props.gitHubUrl} className="border-2 border-secondary px-4 py-2 mobile:text-sm rounded transition-colors duration-250 shadow sm group flex items-center justify-center">
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github group-hover:rotate-[30deg] transition-transform duration-250 w-[24px] mobile:w-[16px] aspect-square"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+			<span>Code</span>
+		</Button>
+		{/if}
 	</div>
 </div>
-
-<style>
-	.circle {
-		transition: background 0.25s ease;
-	}
-</style>

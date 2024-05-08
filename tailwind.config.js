@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+import plugin from 'tailwindcss/plugin';
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
@@ -12,6 +14,7 @@ export default {
       screens: {
         'mobile': {'max': '690px'},
         'normal': {'min': '691px'},
+        'betterhover': {'raw': '(hover: hover)'},
       },
       colors: {
         primary: "var(--primary)",
