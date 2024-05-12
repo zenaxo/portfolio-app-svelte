@@ -61,42 +61,43 @@
 	const movieGalleryProps: ProjectProps = {
 		title: 'Movie Gallery',
 		images: [
-		{ src: mgstart, alt: 'Movie Gallery index view' },
-		{ src: mgdetails, alt: 'Movie Gallery detail view' },
-		{ src: mglogin, alt: 'Movie Gallery log in view' },
-		{ src: mgedit, alt: 'Movie gallery edit movie view' }
+			{ src: mgstart, alt: 'Movie Gallery index view' },
+			{ src: mgdetails, alt: 'Movie Gallery detail view' },
+			{ src: mglogin, alt: 'Movie Gallery log in view' },
+			{ src: mgedit, alt: 'Movie gallery edit movie view' }
 		],
-		description: 'A platform to discover movies was implemented with ASP.NET Core MVC with full CRUD functionallity.',
+		description:
+			'A platform to discover movies was implemented with ASP.NET Core MVC with full CRUD functionallity.',
 		tags: ['Database, ', 'Front-end, ', 'Design, ', 'Collaboration'],
 		imagesClass: 'movie-gallery-images',
 		gitHubUrl: 'https://github.com/zenaxo/MovieGalleryApp',
-		hasCaseStudy: true,
-	}
+		hasCaseStudy: true
+	};
 	const zaptProps: ProjectProps = {
 		title: 'Zapt',
 		images: [
-		{ src: zaptstart, alt: 'Zapt start view' },
-		{ src: zaptkarta, alt: 'Zapt map view' },
-		{ src: zaptkalender, alt: 'Zapt calender view' },
-		{ src: zaptfilter, alt: 'Zapt filter view' }
+			{ src: zaptstart, alt: 'Zapt start view' },
+			{ src: zaptkarta, alt: 'Zapt map view' },
+			{ src: zaptkalender, alt: 'Zapt calender view' },
+			{ src: zaptfilter, alt: 'Zapt filter view' }
 		],
-		description: 'A concept for an all-in-one application for owners of electric vehicles was made with Figma.',
+		description:
+			'A concept for an all-in-one application for owners of electric vehicles was made with Figma.',
 		tags: ['Design, ', 'UI/UX, ', 'Storytelling, ', 'Collaboration'],
 		imagesClass: 'zapt-images',
-		hasCaseStudy: false,
-	}
+		hasCaseStudy: false
+	};
 
 	const portfolioProps: ProjectProps = {
 		title: 'Portfolio',
-		images: [
-			{ src: portfolioImage, alt: 'Landing page of my portfolio'}
-		],
-		description: 'My personal plaform for sharing my projects and skills. Made in SvelteKit with Tailwind CSS.',
+		images: [{ src: portfolioImage, alt: 'Landing page of my portfolio' }],
+		description:
+			'My personal plaform for sharing my projects and skills. Made in Svelte with Tailwind CSS.',
 		tags: ['Front-end, ', 'Design, ', 'UX'],
 		imagesClass: 'portfolio-images',
 		gitHubUrl: 'https://github.com/zenaxo/portfolio-app-svelte',
-		hasCaseStudy: true,
-	}
+		hasCaseStudy: true
+	};
 </script>
 
 <Section sectionName="Movie Gallery">

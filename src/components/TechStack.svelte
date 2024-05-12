@@ -43,7 +43,7 @@
 	});
 </script>
 
-<div class="absolute w-full h-full bg-accent z-30" style={`transform: skewX(${-skewX}deg);`}></div>
+<div class={`absolute w-full h-full ${Math.abs(skewX) === 90 ? 'bg-primary' : 'bg-accent'} z-30`} style={`transform: skewX(${-skewX}deg);`}></div>
 <div class="w-full max-w-[1200px] min-h-full flex gap-8 flex-col z-20" id="techContainer">
 	<div
 		class="p-20 mobile:p-0 flex items-center mobile:pl-5 mobile:items-center mobile:gap-4 justify-between mobile:content-around h-full flex-wrap mobile:mt-9 mobile:mb-9"

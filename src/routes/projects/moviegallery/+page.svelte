@@ -53,7 +53,7 @@
     />
 </svelte:head>
 <div class="min-h-screen pt-[59px] flex flex-col items-center">
-	<article class="my-16 max-w-[800px] mx-6">
+	<article class="my-8 max-w-[800px] mx-6">
 		<h1 class="text-5xl text-center uppercase font-bold whitespace-nowrap mobile:text-3xl text-secondary">{props.title}</h1>
 		<p class="text-xl text-center italic mobile:text-sm text-accent font-semibold mb-4">
 			{#each props.tags as tag}
