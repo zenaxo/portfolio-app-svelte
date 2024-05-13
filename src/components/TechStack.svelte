@@ -43,14 +43,17 @@
 	});
 </script>
 
-<div class={`absolute w-full h-full ${Math.abs(skewX) === 90 ? 'bg-primary' : 'bg-accent'} z-30`} style={`transform: skewX(${-skewX}deg);`}></div>
+<div
+	class={`absolute w-full h-full ${Math.abs(skewX) === 90 ? 'bg-primary' : 'bg-gradient-to-br from-zenaxo-500 to-zenaxo-950'} z-30`}
+	style={`transform: skewX(${-skewX}deg);`}
+></div>
 <div class="w-full max-w-[1200px] min-h-full flex gap-8 flex-col z-20" id="techContainer">
 	<div
 		class="p-20 mobile:p-0 flex items-center mobile:pl-5 mobile:items-center mobile:gap-4 justify-between mobile:content-around h-full flex-wrap mobile:mt-9 mobile:mb-9"
 	>
 		<div class="flex flex-col justify-center text-4xl mobile:text-3xl font-bold uppercase relative">
 			<h2>My</h2>
-			<h2 class="bg-accent text-primary">Experience</h2>
+			<h2 class="bg-gradient-to-r from-accent to-transparent pr-4 text-primary">Experience</h2>
 			<h2>Making</h2>
 			<h2>Tools</h2>
 		</div>
@@ -251,7 +254,7 @@
 					<p class="text-xl">C#</p>
 				</div>
 				<div class="flex flex-col items-center">
-					<svg 
+					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="24"
 						height="24"
@@ -261,7 +264,13 @@
 						stroke-width="1.5"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						class="icon icon-tabler icons-tabler-outline icon-tabler-brand-golang fill-exception"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15.695 14.305c1.061 1.06 2.953 .888 4.226 -.384c1.272 -1.273 1.444 -3.165 .384 -4.226c-1.061 -1.06 -2.953 -.888 -4.226 .384c-1.272 1.273 -1.444 3.165 -.384 4.226z" /><path d="M12.68 9.233c-1.084 -.497 -2.545 -.191 -3.591 .846c-1.284 1.273 -1.457 3.165 -.388 4.226c1.07 1.06 2.978 .888 4.261 -.384a3.669 3.669 0 0 0 1.038 -1.921h-2.427" /><path d="M5.5 15h-1.5" /><path d="M6 9h-2" /><path d="M5 12h-3" /></svg>
+						class="icon icon-tabler icons-tabler-outline icon-tabler-brand-golang fill-exception"
+						><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+							d="M15.695 14.305c1.061 1.06 2.953 .888 4.226 -.384c1.272 -1.273 1.444 -3.165 .384 -4.226c-1.061 -1.06 -2.953 -.888 -4.226 .384c-1.272 1.273 -1.444 3.165 -.384 4.226z"
+						/><path
+							d="M12.68 9.233c-1.084 -.497 -2.545 -.191 -3.591 .846c-1.284 1.273 -1.457 3.165 -.388 4.226c1.07 1.06 2.978 .888 4.261 -.384a3.669 3.669 0 0 0 1.038 -1.921h-2.427"
+						/><path d="M5.5 15h-1.5" /><path d="M6 9h-2" /><path d="M5 12h-3" /></svg
+					>
 					<p class="text-xl">GO</p>
 				</div>
 			</div>

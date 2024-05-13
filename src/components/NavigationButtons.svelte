@@ -138,8 +138,8 @@
 			width="2.75rem"
 			height="2.75rem"
 			viewBox="0 0 24 24"
-			fill="var(--accent)"
-			class="lucide lucide-arrow-big-down"><path d="M15 6v6h4l-7 7-7-7h4V6h6z" /></svg
+			class="lucide lucide-arrow-big-down fill-zenaxo-500"
+			><path d="M15 6v6h4l-7 7-7-7h4V6h6z" /></svg
 		>
 	</button>
 </div>
@@ -164,8 +164,8 @@
 			width="2.75rem"
 			height="2.75rem"
 			viewBox="0 0 24 24"
-			fill="var(--accent)"
-			class="lucide lucide-arrow-big-up"><path d="M9 18v-6H5l7-7 7 7h-4v6H9z" /></svg
+			class="lucide lucide-arrow-big-up fill-zenaxo-500"
+			><path d="M9 18v-6H5l7-7 7 7h-4v6H9z" /></svg
 		>
 	</button>
 </div>

@@ -40,6 +40,7 @@ body.dark {
     --accent-alt: rgb(54, 54, 54);
     background-color: var(--primary);
     --accent: rgb(0, 115, 207);
+    --accentDark: #0b536f;
     --accent-hover: rgb(1, 102, 184);
 }
 body:not(.dark) {

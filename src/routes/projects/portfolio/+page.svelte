@@ -51,7 +51,7 @@
 		>
 			{props.title}
 		</h1>
-		<p class="text-xl text-center italic mobile:text-sm text-accent font-semibold mb-4">
+		<p class="text-xl text-center italic mobile:text-sm text-zenaxo-500 font-semibold mb-4">
 			{#each props.tags as tag}
 				<span>{tag}</span>
 			{/each}

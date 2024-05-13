@@ -56,10 +56,20 @@
 	</div>
 	<div class="flex flex-col w-full items-end" style={`transform: translateX(${xTransform * -1}%)`}>
 		<h2 class="mb-5">I AM DEVOTED</h2>
-		<h2 class="mb-5">TO CREATING <span class="text-primary bg-accent pr-2">USER-</span></h2>
+		<h2 class="mb-5">
+			TO CREATING
+			<span
+				class="text-primary bg-gradient-to-r from-zenaxo-500 via-50% via-zenaxo-800 to-transparent pr-2 pt-2"
+				>USER-
+			</span>
+		</h2>
 	</div>
 	<div style={`transform: translateX(${xTransform}%)`}>
-		<h2 class="mb-5 text-primary bg-accent w-max mobile:pr-2 pr-6">CENTERED SOLUTIONS</h2>
+		<h2
+			class="mb-5 text-primary bg-gradient-to-r from-zenaxo-500 via-80% via-zenaxo-800 to-transparent w-max mobile:pr-2 pr-6 pt-2"
+		>
+			CENTERED SOLUTIONS
+		</h2>
 		<h2 class="mb-5">THAT ARE SEAMLESS,</h2>
 	</div>
 	<div class="flex flex-col w-full items-end" style={`transform: translateX(${xTransform * -1}%)`}>

@@ -22,15 +22,16 @@
 		for (let i = 0; i < textToType.length; i++) {
 			setTimeout(() => {
 				text += textToType[i];
-			}, i * 100);
+			}, i * 70);
 		}
 	});
 </script>
 
 <!--Background-->
 <div class="w-1/2 absolute left-0 h-full bg-primary z-0"></div>
-<div class="w-1/2 absolute right-0 h-full bg-accent -skew-x-12 z-0"></div>
-<div class="w-1/3 absolute right-0 h-1/2 bottom-0 bg-accent z-0"></div>
+<div
+	class="w-[calc(50vw+20%)] translate-x-[25vw] absolute right-0 h-full bg-gradient-to-tr from-zenaxo-500 to-zenaxo-950 -skew-x-12 z-0"
+></div>
 <!--Background end-->
 <div class="w-full h-full max-h-full flex items-center justify-around z-30 mobile:flex-col">
 	<div class="relative translate-y-10">
