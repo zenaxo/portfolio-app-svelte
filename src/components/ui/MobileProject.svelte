@@ -25,7 +25,7 @@
 		</p>
 		<p class="mobile:text-sm">{props.description}</p>
 	</div>
-	<div class="flex my-auto mx-10 flex-1 justify-center gap-16">
+	<div class="flex my-auto mx-10 flex-1 justify-center gap-16 mobile:gap-4">
 		{#if props.images.length > 1}
 			<button
 				on:click={prevImg}
@@ -47,12 +47,13 @@
 				>
 			</button>
 		{/if}
-		<div class="justify-center w-[300px] mobile:w-[60vw] h-full my-auto relative flex items-center">
+		<div class="justify-center h-[40vh] w-full aspect-[9/16] my-auto relative flex items-center">
 			<img
 				src={props.images[currentImgIndex].src}
 				alt={props.images[currentImgIndex].alt}
 				class="max-w-full max-h-full absolute object-contain"
 				width="600"
+				height="900"
 			/>
 		</div>
 		{#if props.images.length > 1}
