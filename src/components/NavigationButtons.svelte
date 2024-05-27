@@ -10,11 +10,11 @@
 		const currentPosition = window.scrollY;
 
 		for (let i = 0; i < sectionStartElements.length; i++) {
-			const elementPosition =
-				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
-			if (currentPosition < elementPosition - window.innerHeight - 58) {
+			const elementTop = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
+			if (currentPosition < elementTop - 58) {
+				// Adjusted to account for the top of the section
 				window.scrollTo({
-					top: elementPosition - window.innerHeight,
+					top: elementTop - 58, // Scroll to the top of the section
 					behavior: 'smooth'
 				});
 				break;

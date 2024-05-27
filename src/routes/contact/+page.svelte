@@ -1,5 +1,9 @@
-<script>
-	import Contact from './components/Contact.svelte';
+<script lang="ts">
+	import ContactForm from '../../components/ContactForm.svelte';
+	import type { SuperValidated } from 'sveltekit-superforms';
+	import type { EmailSchema } from '$lib/schema/mailschema.js';
+
+	export let data: SuperValidated<EmailSchema>;
 </script>
 
 <svelte:head>
@@ -22,7 +26,5 @@
 	/>
 </svelte:head>
 <main class="min-h-screen pt-[59px] flex flex-col items-center my-6 mx-6">
-	<div class="text-secondary">
-		<Contact />
-	</div>
+	<ContactForm {data} />
 </main>

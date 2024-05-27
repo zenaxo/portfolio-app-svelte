@@ -5,9 +5,14 @@
 	import manifest from '../site.webmanifest';
 	import maskIcon from '$lib/icons/safari-pinned-tab.svg';
 	import Footer from '../components/Footer.svelte';
+	import { darkMode } from '$lib/stores/stores.js';
 
 	import '../app.css';
 	import Nav from '../components/Nav/Nav.svelte';
+
+	export let data;
+
+	darkMode.set(data.darkMode);
 </script>
 
 <svelte:head>

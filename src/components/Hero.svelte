@@ -36,7 +36,7 @@
 <div class="w-full h-full max-h-full flex items-center justify-around z-30 mobile:flex-col">
 	<div class="relative translate-y-10">
 		<h1
-			class="text-7xl mobile:text-5xl absolute font-bold -translate-y-[calc(100%+26px)] text-nowrap min-w-max"
+			class="text-7xl mobile:text-5xl absolute font-bold -translate-y-[calc(100%+26px)] text-nowrap"
 			id="heroHead"
 		>
 			{text}

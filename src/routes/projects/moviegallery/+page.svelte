@@ -7,8 +7,24 @@
 	import mglogin from '$lib/images/mglogin.webp';
 	import mgedit from '$lib/images/mgedit.webp';
 	import Button from '../../../components/ui/Button.svelte';
-	import { isDarkModeToggled } from '$lib/stores/stores.js';
+	import { darkMode } from '$lib/stores/stores.js';
+	import { onMount } from 'svelte';
 
+	let imageLoaded = false;
+
+	const preloadImage = () => {
+		if (!imageLoaded) {
+			const img = new Image();
+			if ($darkMode) {
+				img.src = erLightImage;
+			} else {
+				img.src = erLightImage;
+			}
+			img.onload = () => {
+				imageLoaded = true;
+			};
+		}
+	};
 	const props: ProjectProps = {
 		title: 'Movie Gallery',
 		images: [
@@ -34,6 +50,10 @@
 	const nextImg = () => {
 		currentImgIndex = (currentImgIndex + 1) % props.images.length;
 	};
+
+	onMount(() => {
+		preloadImage();
+	});
 </script>
 
 <svelte:head>
@@ -82,7 +102,7 @@
 		</p>
 		<div class="my-8 border-2 border-accentAlt p-4 rounded-md">
 			<img
-				src={$isDarkModeToggled ? erDarkImage : erLightImage}
+				src={$darkMode ? erDarkImage : erLightImage}
 				alt="Movie Gallery Entity Model."
 				class="max-h-[500px] object-contain"
 				width="800"
