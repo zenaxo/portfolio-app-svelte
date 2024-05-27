@@ -11,10 +11,10 @@
 
 		for (let i = 0; i < sectionStartElements.length; i++) {
 			const elementTop = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition < elementTop - 58) {
+			if (currentPosition < elementTop - 59) {
 				// Adjusted to account for the top of the section
 				window.scrollTo({
-					top: elementTop - 58, // Scroll to the top of the section
+					top: elementTop - 59, // Scroll to the top of the section
 					behavior: 'smooth'
 				});
 				break;
@@ -31,7 +31,7 @@
 		for (let i = sectionStartElements.length - 1; i >= 0; i--) {
 			const elementPosition =
 				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
-			if (currentPosition > elementPosition - window.innerHeight + 58) {
+			if (currentPosition > elementPosition - window.innerHeight + 59) {
 				window.scrollTo({
 					top: elementPosition - window.innerHeight,
 					behavior: 'smooth'
@@ -47,7 +47,7 @@
 
 		for (let i = 0; i < sectionStartElements.length; i++) {
 			const elementPosition = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition < elementPosition - 58) {
+			if (currentPosition < elementPosition - 59) {
 				const section = sectionStartElements[i] as HTMLElement;
 				return section.getAttribute('data-section-name');
 			}
@@ -65,7 +65,7 @@
 
 		for (let i = sectionStartElements.length - 1; i >= 0; i--) {
 			const elementPosition = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition > elementPosition + 58) {
+			if (currentPosition > elementPosition + 59) {
 				const section = sectionStartElements[i] as HTMLElement;
 				return section.getAttribute('data-section-name');
 			}
