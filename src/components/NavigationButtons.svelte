@@ -3,7 +3,7 @@
 	let nextSectionTitle = '';
 	let previousSectionTitle = '';
 
-	const navOffset = 60;
+	const navOffset = 59;
 
 	const handleScrollClickDown = () => {
 		const sectionStartElements = document.querySelectorAll(
@@ -13,7 +13,7 @@
 
 		for (let i = 0; i < sectionStartElements.length; i++) {
 			const elementTop = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition < elementTop - navOffset) {
+			if (currentPosition < elementTop - navOffset - 10) {
 				// Adjusted to account for the top of the section
 				window.scrollTo({
 					top: elementTop - navOffset, // Scroll to the top of the section
@@ -33,7 +33,7 @@
 		for (let i = sectionStartElements.length - 1; i >= 0; i--) {
 			const elementPosition =
 				sectionStartElements[i].getBoundingClientRect().bottom + window.scrollY;
-			if (currentPosition > elementPosition - window.innerHeight + navOffset) {
+			if (currentPosition > elementPosition - window.innerHeight + navOffset + 10) {
 				window.scrollTo({
 					top: elementPosition - window.innerHeight,
 					behavior: 'smooth'
@@ -49,7 +49,7 @@
 
 		for (let i = 0; i < sectionStartElements.length; i++) {
 			const elementPosition = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition < elementPosition - navOffset) {
+			if (currentPosition < elementPosition - navOffset - 10) {
 				const section = sectionStartElements[i] as HTMLElement;
 				return section.getAttribute('data-section-name');
 			}
@@ -67,7 +67,7 @@
 
 		for (let i = sectionStartElements.length - 1; i >= 0; i--) {
 			const elementPosition = sectionStartElements[i].getBoundingClientRect().top + window.scrollY;
-			if (currentPosition > elementPosition + navOffset) {
+			if (currentPosition > elementPosition + navOffset + 10) {
 				const section = sectionStartElements[i] as HTMLElement;
 				return section.getAttribute('data-section-name');
 			}
