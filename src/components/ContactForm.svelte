@@ -16,7 +16,7 @@
 
 {#if $message !== undefined}
 	<div
-		class="fixed bottom-0 right-0 bg-secondary m-10 text-primary rounded-md p-8 flex items-center flex-col max-w-[40ch] border-2 border-zinc-500"
+		class="fixed bottom-0 z-top right-0 bg-secondary m-10 text-primary rounded-md p-8 flex items-center flex-col max-w-[40ch] border-2 border-zinc-500"
 	>
 		<button
 			class="absolute top-0 right-0 font-semibold p-4"
